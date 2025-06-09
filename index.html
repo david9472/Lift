@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Lift - Powerful Workout Tracking for iPhone</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            :root {
+                --text-primary: #1d1d1f;
+                --text-secondary: #86868b;
+                --text-link: #0066cc;
+                --bg-primary: #ffffff;
+                --bg-secondary: #f5f5f7;
+                --bg-dark: #000000;
+                --accent: #0071e3;
+            }
+
+            body {
+                font-family:
+                    -apple-system, BlinkMacSystemFont, "SF Pro Display",
+                    "SF Pro Text", "Helvetica Neue", Helvetica, Arial,
+                    sans-serif;
+                color: var(--text-primary);
+                background: var(--bg-primary);
+                line-height: 1.47059;
+                font-weight: 400;
+                letter-spacing: -0.022em;
+            }
+
+            /* Navigation */
+            nav {
+                position: fixed;
+                top: 0;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.8);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                z-index: 1000;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-content {
+                max-width: 980px;
+                margin: 0 auto;
+                padding: 0 22px;
+                height: 48px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .logo {
+                font-size: 21px;
+                font-weight: 600;
+                color: var(--text-primary);
+            }
+
+            .download-btn {
+                background: var(--accent);
+                color: white;
+                padding: 8px 16px;
+                border-radius: 20px;
+                text-decoration: none;
+                font-size: 14px;
+                font-weight: 400;
+                transition: all 0.3s ease;
+            }
+
+            .download-btn:hover {
+                background: #0077ed;
+            }
+
+            /* Hero Section */
+            .hero {
+                padding: 120px 0 80px;
+                text-align: center;
+                background: var(--bg-primary);
+            }
+
+            .hero h1 {
+                font-size: 56px;
+                line-height: 1.07143;
+                font-weight: 600;
+                letter-spacing: -0.005em;
+                margin-bottom: 24px;
+            }
+
+            .hero .tagline {
+                font-size: 28px;
+                line-height: 1.14286;
+                font-weight: 400;
+                letter-spacing: 0.007em;
+                color: var(--text-secondary);
+                margin-bottom: 40px;
+            }
+
+            .hero-image {
+                max-width: 980px;
+                margin: 0 auto;
+                padding: 0 22px;
+            }
+
+            .hero-image img {
+                width: 100%;
+                height: auto;
+                border-radius: 8px;
+            }
+
+            /* Features Grid */
+            .features {
+                padding: 80px 0;
+                background: var(--bg-secondary);
+            }
+
+            .container {
+                max-width: 980px;
+                margin: 0 auto;
+                padding: 0 22px;
+            }
+
+            .section-header {
+                text-align: center;
+                margin-bottom: 60px;
+            }
+
+            .section-header h2 {
+                font-size: 48px;
+                line-height: 1.08349;
+                font-weight: 600;
+                letter-spacing: -0.003em;
+                margin-bottom: 16px;
+            }
+
+            .section-header p {
+                font-size: 21px;
+                line-height: 1.381;
+                font-weight: 400;
+                letter-spacing: 0.011em;
+                color: var(--text-secondary);
+            }
+
+            .features-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 40px;
+            }
+
+            .feature-card {
+                background: var(--bg-primary);
+                padding: 40px;
+                border-radius: 18px;
+                text-align: center;
+                transition: transform 0.3s ease;
+            }
+
+            .feature-card:hover {
+                transform: translateY(-4px);
+            }
+
+            .feature-icon {
+                width: 64px;
+                height: 64px;
+                margin: 0 auto 24px;
+                background: linear-gradient(135deg, #007aff, #5856d6);
+                border-radius: 16px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 32px;
+                color: white;
+            }
+
+            .feature-card h3 {
+                font-size: 24px;
+                line-height: 1.16667;
+                font-weight: 600;
+                letter-spacing: 0.009em;
+                margin-bottom: 12px;
+            }
+
+            .feature-card p {
+                font-size: 17px;
+                line-height: 1.47059;
+                color: var(--text-secondary);
+            }
+
+            /* Tracking Modes */
+            .tracking-modes {
+                padding: 80px 0;
+                background: var(--bg-primary);
+            }
+
+            .modes-list {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 30px;
+                margin-top: 40px;
+            }
+
+            .mode-item {
+                padding: 30px;
+                background: var(--bg-secondary);
+                border-radius: 12px;
+            }
+
+            .mode-item h4 {
+                font-size: 21px;
+                font-weight: 600;
+                margin-bottom: 8px;
+            }
+
+            .mode-item p {
+                font-size: 17px;
+                color: var(--text-secondary);
+            }
+
+            /* Analytics Section */
+            .analytics {
+                padding: 80px 0;
+                background: var(--bg-dark);
+                color: white;
+            }
+
+            .analytics .section-header h2,
+            .analytics .section-header p {
+                color: white;
+            }
+
+            .analytics .section-header p {
+                opacity: 0.8;
+            }
+
+            .analytics-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 60px;
+                align-items: center;
+                margin-top: 60px;
+            }
+
+            .analytics-content h3 {
+                font-size: 32px;
+                font-weight: 600;
+                margin-bottom: 20px;
+            }
+
+            .analytics-list {
+                list-style: none;
+            }
+
+            .analytics-list li {
+                font-size: 19px;
+                line-height: 1.4;
+                margin-bottom: 16px;
+                padding-left: 28px;
+                position: relative;
+            }
+
+            .analytics-list li:before {
+                content: "✓";
+                position: absolute;
+                left: 0;
+                color: #30d158;
+                font-weight: 600;
+            }
+
+            .analytics-visual {
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 18px;
+                padding: 40px;
+                text-align: center;
+                min-height: 400px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            /* CTA Section */
+            .cta {
+                padding: 100px 0;
+                text-align: center;
+                background: var(--bg-secondary);
+            }
+
+            .cta h2 {
+                font-size: 48px;
+                font-weight: 600;
+                margin-bottom: 24px;
+            }
+
+            .cta p {
+                font-size: 21px;
+                color: var(--text-secondary);
+                margin-bottom: 40px;
+            }
+
+            .app-store-badge {
+                display: inline-block;
+                height: 60px;
+            }
+
+            .app-store-badge img {
+                height: 100%;
+            }
+
+            /* Footer */
+            footer {
+                padding: 40px 0;
+                background: var(--bg-primary);
+                text-align: center;
+                border-top: 1px solid rgba(0, 0, 0, 0.1);
+            }
+
+            footer p {
+                font-size: 14px;
+                color: var(--text-secondary);
+            }
+
+            /* Responsive */
+            @media (max-width: 768px) {
+                .hero h1 {
+                    font-size: 40px;
+                }
+
+                .hero .tagline {
+                    font-size: 21px;
+                }
+
+                .section-header h2 {
+                    font-size: 32px;
+                }
+
+                .analytics-grid {
+                    grid-template-columns: 1fr;
+                    gap: 40px;
+                }
+
+                .features-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Navigation -->
+        <nav>
+            <div class="nav-content">
+                <div class="logo">Lift</div>
+                <a href="#download" class="download-btn">Download</a>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Lift</h1>
+            <p class="tagline">
+                Powerful enough for the dedicated,<br />simple enough for
+                everyone.
+            </p>
+            <div class="hero-image">
+                <img
+                    src="images/hero.jpg"
+                    alt="Lift app screenshot showing workout tracking interface"
+                />
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Everything you need to track progress</h2>
+                    <p>
+                        Built exclusively with SwiftUI for the perfect iOS
+                        experience
+                    </p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>Smart Analytics</h3>
+                        <p>
+                            Real-time volume tracking, 1RM estimations, and
+                            muscle distribution analysis
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💪</div>
+                        <h3>Advanced Tracking</h3>
+                        <p>
+                            Track weight, reps, sets, and RIR with three
+                            specialized input modes
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📱</div>
+                        <h3>Native iOS Design</h3>
+                        <p>
+                            Feels right at home on your iPhone with smooth,
+                            intuitive interactions
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tracking Modes -->
+        <section class="tracking-modes">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Three ways to track</h2>
+                    <p>Precision tracking for every exercise type</p>
+                </div>
+                <div class="modes-list">
+                    <div class="mode-item">
+                        <h4>Bilateral</h4>
+                        <p>
+                            Standard exercises with both limbs working together
+                        </p>
+                    </div>
+                    <div class="mode-item">
+                        <h4>Unilateral Simultaneous</h4>
+                        <p>Single-limb movements performed in sync</p>
+                    </div>
+                    <div class="mode-item">
+                        <h4>Unilateral Independent</h4>
+                        <p>Track each side separately for perfect balance</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Analytics -->
+        <section class="analytics">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Insights that drive results</h2>
+                    <p>
+                        Transform your workout data into actionable intelligence
+                    </p>
+                </div>
+                <div class="analytics-grid">
+                    <div class="analytics-content">
+                        <h3>Your personal dashboard</h3>
+                        <ul class="analytics-list">
+                            <li>Weekly volume comparisons</li>
+                            <li>Consistency metrics and streaks</li>
+                            <li>Muscle group distribution</li>
+                            <li>Apple Health integration</li>
+                            <li>Smoothed bodyweight trends</li>
+                            <li>Assisted weight calculations</li>
+                        </ul>
+                    </div>
+                    <div class="analytics-visual">
+                        <img
+                            src="images/dasboard.jpeg"
+                            alt="Lift dashboard showing workout analytics"
+                            style="
+                                width: 100%;
+                                height: auto;
+                                border-radius: 12px;
+                            "
+                        />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta" id="download">
+            <div class="container">
+                <h2>Start tracking smarter today</h2>
+                <p>Join thousands of lifters who've upgraded their training</p>
+                <a href="#" class="app-store-badge">
+                    <img
+                        src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                        alt="Download on the App Store"
+                    />
+                </a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <p>&copy; 2025 Lift. All rights reserved.</p>
+            </div>
+        </footer>
+    </body>
+</html>
