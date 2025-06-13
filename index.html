@@ -19,10 +19,18 @@
                 --bg-secondary: #f5f5f7;
                 --bg-dark: #000000;
                 --accent: #0071e3;
-                --gradient-1: linear-gradient(135deg, #007aff, #5856d6);
-                --gradient-2: linear-gradient(135deg, #ff3b30, #ff6482);
-                --gradient-3: linear-gradient(135deg, #34c759, #30d158);
-                --gradient-4: linear-gradient(135deg, #ff9500, #ffcc00);
+            }
+            
+            @media (prefers-color-scheme: dark) {
+                :root {
+                    --text-primary: #f5f5f7;
+                    --text-secondary: #b0b0b5;
+                    --text-link: #4ea1ff;
+                    --bg-primary: #18181a;
+                    --bg-secondary: #232326;
+                    --bg-dark: #000000;
+                    --accent: #2997ff;
+                }
             }
 
             body {
@@ -47,6 +55,12 @@
                 -webkit-backdrop-filter: blur(20px);
                 z-index: 1000;
                 border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            }
+            @media (prefers-color-scheme: dark) {
+                nav {
+                    background: rgba(24, 24, 26, 0.85);
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+                }
             }
 
             .nav-content {
@@ -78,6 +92,11 @@
 
             .download-btn:hover {
                 background: #0077ed;
+            }
+            @media (prefers-color-scheme: dark) {
+                .download-btn:hover {
+                    background: #4ea1ff;
+                }
             }
 
             /* Hero Section */
@@ -452,6 +471,11 @@
                 background: var(--bg-primary);
                 border-top: 1px solid rgba(0, 0, 0, 0.1);
             }
+            @media (prefers-color-scheme: dark) {
+                footer {
+                    border-top: 1px solid rgba(255,255,255,0.08);
+                }
+            }
 
             .footer-content {
                 display: grid;
@@ -507,6 +531,11 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+            }
+            @media (prefers-color-scheme: dark) {
+                .footer-bottom {
+                    border-top: 1px solid rgba(255,255,255,0.08);
+                }
             }
 
             .footer-bottom p {
