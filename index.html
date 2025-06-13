@@ -19,6 +19,10 @@
                 --bg-secondary: #f5f5f7;
                 --bg-dark: #000000;
                 --accent: #0071e3;
+                --gradient-1: linear-gradient(135deg, #007aff, #5856d6);
+                --gradient-2: linear-gradient(135deg, #ff3b30, #ff6482);
+                --gradient-3: linear-gradient(135deg, #34c759, #30d158);
+                --gradient-4: linear-gradient(135deg, #ff9500, #ffcc00);
             }
 
             body {
@@ -101,7 +105,7 @@
             }
 
             .hero-image {
-                max-width: 980px;
+                max-width: 1980px;
                 margin: 0 auto;
                 padding: 0 22px;
             }
@@ -167,13 +171,25 @@
                 width: 64px;
                 height: 64px;
                 margin: 0 auto 24px;
-                background: linear-gradient(135deg, #007aff, #5856d6);
+
                 border-radius: 16px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 font-size: 32px;
                 color: white;
+            }
+
+            .feature-icon.gradient-2 {
+                background: var(--gradient-2);
+            }
+
+            .feature-icon.gradient-3 {
+                background: var(--gradient-3);
+            }
+
+            .feature-icon.gradient-4 {
+                background: var(--gradient-4);
             }
 
             .feature-card h3 {
@@ -190,10 +206,85 @@
                 color: var(--text-secondary);
             }
 
+            /* Core Features Section */
+            .core-features {
+                padding: 80px 0;
+                background: var(--bg-primary);
+            }
+
+            .feature-showcase {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 80px;
+                align-items: center;
+                margin-bottom: 80px;
+            }
+
+            .feature-showcase:nth-child(even) {
+                direction: rtl;
+            }
+
+            .feature-showcase:nth-child(even) > * {
+                direction: ltr;
+            }
+
+            .feature-content h3 {
+                font-size: 40px;
+                font-weight: 600;
+                margin-bottom: 24px;
+                line-height: 1.1;
+            }
+
+            .feature-content p {
+                font-size: 21px;
+                color: var(--text-secondary);
+                margin-bottom: 32px;
+                line-height: 1.4;
+            }
+
+            .feature-list {
+                list-style: none;
+            }
+
+            .feature-list li {
+                font-size: 17px;
+                line-height: 1.6;
+                margin-bottom: 16px;
+                padding-left: 28px;
+                position: relative;
+                color: var(--text-primary);
+            }
+
+            .feature-list li:before {
+                content: "✓";
+                position: absolute;
+                left: 0;
+                color: #30d158;
+                font-weight: 600;
+            }
+
+            .feature-visual {
+                background: var(--bg-secondary);
+                border-radius: 18px;
+                padding: 0px;
+                text-align: center;
+                min-height: 400px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .feature-visual.dark {
+                background: var(--bg-dark);
+                color: white;
+            }
+
             /* Tracking Modes */
             .tracking-modes {
                 padding: 80px 0;
-                background: var(--bg-primary);
+                background: var(--bg-secondary);
             }
 
             .modes-list {
@@ -205,8 +296,13 @@
 
             .mode-item {
                 padding: 30px;
-                background: var(--bg-secondary);
+                background: var(--bg-primary);
                 border-radius: 12px;
+                transition: transform 0.3s ease;
+            }
+
+            .mode-item:hover {
+                transform: translateY(-2px);
             }
 
             .mode-item h4 {
@@ -279,6 +375,47 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
+            }
+
+            /* Privacy Section */
+            .privacy {
+                padding: 80px 0;
+                background: var(--bg-primary);
+            }
+
+            .privacy-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 40px;
+                margin-top: 60px;
+            }
+
+            .privacy-card {
+                text-align: center;
+            }
+
+            .privacy-icon {
+                width: 80px;
+                height: 80px;
+                margin: 0 auto 24px;
+                background: var(--bg-secondary);
+                border-radius: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 40px;
+            }
+
+            .privacy-card h3 {
+                font-size: 24px;
+                font-weight: 600;
+                margin-bottom: 12px;
+            }
+
+            .privacy-card p {
+                font-size: 17px;
+                color: var(--text-secondary);
+                line-height: 1.5;
             }
 
             /* CTA Section */
@@ -393,20 +530,6 @@
                 color: var(--text-secondary);
             }
 
-            /* Responsive Footer */
-            @media (max-width: 768px) {
-                .footer-content {
-                    grid-template-columns: 1fr;
-                    gap: 40px;
-                }
-
-                .footer-bottom {
-                    flex-direction: column;
-                    text-align: center;
-                    gap: 16px;
-                }
-            }
-
             /* Responsive */
             @media (max-width: 768px) {
                 .hero h1 {
@@ -421,13 +544,29 @@
                     font-size: 32px;
                 }
 
-                .analytics-grid {
+                .analytics-grid,
+                .feature-showcase {
                     grid-template-columns: 1fr;
                     gap: 40px;
                 }
 
+                .feature-showcase:nth-child(even) {
+                    direction: ltr;
+                }
+
                 .features-grid {
                     grid-template-columns: 1fr;
+                }
+
+                .footer-content {
+                    grid-template-columns: 1fr;
+                    gap: 40px;
+                }
+
+                .footer-bottom {
+                    flex-direction: column;
+                    text-align: center;
+                    gap: 16px;
                 }
             }
         </style>
@@ -468,28 +607,168 @@
                 </div>
                 <div class="features-grid">
                     <div class="feature-card">
-                        <div class="feature-icon">📊</div>
+                        <img
+                            class="feature-icon"
+                            src="images/chart.bar.fill.svg"
+                        />
                         <h3>Smart Analytics</h3>
                         <p>
-                            Real-time volume tracking, 1RM estimations, and
-                            muscle distribution analysis
+                            Advanced progress analytics with KDE algorithms,
+                            confidence intervals, and trend estimations
                         </p>
                     </div>
                     <div class="feature-card">
-                        <div class="feature-icon">💪</div>
+                        <img
+                            class="feature-icon"
+                            src="images/chart.line.text.clipboard.svg"
+                        />
                         <h3>Advanced Tracking</h3>
                         <p>
-                            Track weight, reps, sets, and RIR with three
-                            specialized input modes
+                            Log exercises, weights, reps, and RIR with
+                            personalized recommendations
                         </p>
                     </div>
                     <div class="feature-card">
-                        <div class="feature-icon">📱</div>
+                        <img class="feature-icon" src="images/apple.logo.svg" />
                         <h3>Native iOS Design</h3>
                         <p>
                             Feels right at home on your iPhone with smooth,
                             intuitive interactions
                         </p>
+                    </div>
+                    <div class="feature-card">
+                        <img class="feature-icon" src="images/lock.fill.svg" />
+                        <h3>Privacy First</h3>
+                        <p>
+                            All data stored locally with Face ID, Touch ID, and
+                            device encryption
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <img class="feature-icon" src="images/calendar.svg" />
+                        <h3>Smart Scheduling</h3>
+                        <p>
+                            Training schedules aligned to calendar weeks with
+                            streak notifications
+                        </p>
+                    </div>
+                    <div class="feature-card">
+                        <img class="feature-icon" src="images/gear.svg" />
+                        <h3>Fully Customizable</h3>
+                        <p>
+                            Equipment management, rest timers, and personalized
+                            workout settings
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Features -->
+        <section class="core-features">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Designed for serious training</h2>
+                    <p>Every feature crafted to help you reach your goals</p>
+                </div>
+
+                <div class="feature-showcase">
+                    <div class="feature-content">
+                        <h3>Comprehensive Workout Tracking</h3>
+                        <p>Log every detail of your training with precision</p>
+                        <ul class="feature-list">
+                            <li>Track exercises, weights, reps, and RIR</li>
+                            <li>Smart warm-up and working set generation</li>
+                            <li>Equipment management with custom setups</li>
+                            <li>Manual data entry and export options</li>
+                            <li>Dynamic input fields with numpad support</li>
+                        </ul>
+                    </div>
+                    <div class="feature-visual">
+                        <img
+                            src="images/tracking.jpg"
+                            alt="Workout tracking interface"
+                            style="
+                                width: 100%;
+                                height: auto;
+                                border-radius: 0px;
+                            "
+                        />
+                    </div>
+                </div>
+
+                <div class="feature-showcase">
+                    <div class="feature-content">
+                        <h3>Intelligent Progress Analytics</h3>
+                        <p>Transform your data into actionable insights</p>
+                        <ul class="feature-list">
+                            <li>Advanced KDE algorithms for trend analysis</li>
+                            <li>Charts with confidence intervals</li>
+                            <li>Bodyweight tracking with consent</li>
+                            <li>Calorie estimation improvements</li>
+                            <li>Detailed statistics and annotations</li>
+                        </ul>
+                    </div>
+                    <div class="feature-visual dark">
+                        <img
+                            src="images/analytics.jpg"
+                            alt="Analytics dashboard"
+                            style="
+                                width: 100%;
+                                height: auto;
+                                border-radius: 12px;
+                            "
+                        />
+                    </div>
+                </div>
+
+                <div class="feature-showcase">
+                    <div class="feature-content">
+                        <h3>Personalized Experience</h3>
+                        <p>Your workout app, tailored to you</p>
+                        <ul class="feature-list">
+                            <li>Dashboard with streaks and key metrics</li>
+                            <li>Personalized greetings and profiles</li>
+                            <li>Locale-aware data display</li>
+                            <li>In-app tips with TipKit</li>
+                            <li>Toast notifications for actions</li>
+                        </ul>
+                    </div>
+                    <div class="feature-visual">
+                        <img
+                            src="images/dashboard.jpg"
+                            alt="Personalized dashboard"
+                            style="
+                                width: 100%;
+                                height: auto;
+                                border-radius: 12px;
+                            "
+                        />
+                    </div>
+                </div>
+
+                <div class="feature-showcase">
+                    <div class="feature-content">
+                        <h3>Stay Consistent</h3>
+                        <p>Never miss a workout with smart reminders</p>
+                        <ul class="feature-list">
+                            <li>Calendar-aligned training schedules</li>
+                            <li>Streak and risk notifications</li>
+                            <li>Stale workout alerts</li>
+                            <li>Workout duration estimates</li>
+                            <li>Weekday selector highlights</li>
+                        </ul>
+                    </div>
+                    <div class="feature-visual dark">
+                        <img
+                            src="images/exercise_analytics.jpeg"
+                            alt="Workout scheduling"
+                            style="
+                                width: 100%;
+                                height: auto;
+                                border-radius: 12px;
+                            "
+                        />
                     </div>
                 </div>
             </div>
@@ -540,11 +819,13 @@
                             <li>Apple Health integration</li>
                             <li>Smoothed bodyweight trends</li>
                             <li>Assisted weight calculations</li>
+                            <li>1RM estimations and progress tracking</li>
+                            <li>Advanced trend analysis with KDE</li>
                         </ul>
                     </div>
                     <div class="analytics-visual">
                         <img
-                            src="images/dasboard.jpeg"
+                            src="images/dashboard.jpg"
                             alt="Lift dashboard showing workout analytics"
                             style="
                                 width: 100%;
@@ -552,6 +833,48 @@
                                 border-radius: 12px;
                             "
                         />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Privacy Section -->
+        <section class="privacy">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Your data stays yours</h2>
+                    <p>Complete privacy with zero compromises</p>
+                </div>
+                <div class="privacy-grid">
+                    <div class="privacy-card">
+                        <img class="feature-icon" src="images/lock.fill.svg" />
+                        <h3>100% Local Storage</h3>
+                        <p>
+                            All data stored on your device using SwiftData. No
+                            cloud servers, no external transmission.
+                        </p>
+                    </div>
+                    <div class="privacy-card">
+                        <img
+                            class="feature-icon"
+                            src="images/shield.fill.svg"
+                        />
+                        <h3>Device Security</h3>
+                        <p>
+                            Protected by Face ID, Touch ID, and iOS encryption.
+                            Your workouts are for your eyes only.
+                        </p>
+                    </div>
+                    <div class="privacy-card">
+                        <img
+                            class="feature-icon"
+                            src="images/text.document.svg"
+                        />
+                        <h3>GDPR Compliant</h3>
+                        <p>
+                            Full control with access, rectification, erasure,
+                            portability, and consent withdrawal rights.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -617,7 +940,7 @@
                 </div>
 
                 <div class="footer-bottom">
-                    <p>&copy; 2024 Lift. All rights reserved.</p>
+                    <p>&copy; 2025 Lift. All rights reserved.</p>
                     <p class="footer-legal">
                         <a href="privacy-policy.html">Privacy Policy</a>
                         <span class="separator">|</span>
