@@ -3,21 +3,597 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Lift - Powerful Workout Tracking for iPhone</title>
-        <link rel="stylesheet" href="css/base.css" />
-        <link rel="stylesheet" href="css/layout.css" />
-        <link rel="stylesheet" href="css/index.css" />
+        <title>Lift - Your Workout Journey, Simplified</title>
+        <style>
+            /* CSS Reset & Base Styles */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            :root {
+                --primary-text: #1d1d1f;
+                --secondary-text: #86868b;
+                --accent: #0071e3;
+                --accent-hover: #0077ed;
+                --background: #ffffff;
+                --background-alt: #f5f5f7;
+                --border-radius: 18px;
+                --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            body {
+                font-family:
+                    -apple-system, BlinkMacSystemFont, "SF Pro Display",
+                    "SF Pro Text", "Helvetica Neue", sans-serif;
+                color: var(--primary-text);
+                background: var(--background);
+                line-height: 1.6;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+
+            /* Navigation */
+            nav {
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+                background: rgba(255, 255, 255, 0.8);
+                backdrop-filter: saturate(180%) blur(20px);
+                border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            }
+
+            .nav-content {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 16px 24px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .logo {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                font-size: 21px;
+                font-weight: 600;
+                letter-spacing: -0.02em;
+            }
+
+            .hero-logo {
+                width: 32px;
+                height: 32px;
+                border-radius: 8px;
+            }
+
+            .download-btn {
+                background: var(--accent);
+                color: white;
+                padding: 8px 20px;
+                border-radius: 980px;
+                text-decoration: none;
+                font-size: 14px;
+                font-weight: 500;
+                transition: var(--transition);
+            }
+
+            .download-btn:hover {
+                background: var(--accent-hover);
+                transform: scale(1.02);
+            }
+
+            /* Hero Section */
+            .hero {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 80px 24px 40px;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 72px;
+                font-weight: 700;
+                letter-spacing: -0.04em;
+                line-height: 1.05;
+                margin-bottom: 12px;
+                background: linear-gradient(135deg, #1d1d1f 0%, #424245 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+
+            .tagline {
+                font-size: 28px;
+                font-weight: 500;
+                color: var(--secondary-text);
+                letter-spacing: -0.01em;
+                line-height: 1.4;
+                margin-bottom: 48px;
+            }
+
+            .hero-image {
+                max-width: 900px;
+                margin: 0 auto;
+                padding: 0 24px;
+            }
+
+            .hero-image img {
+                width: 100%;
+                height: auto;
+                border-radius: 24px;
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+            }
+
+            /* Container */
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 24px;
+            }
+
+            /* Section Headers */
+            .section-header {
+                text-align: center;
+                margin-bottom: 64px;
+            }
+
+            .section-header h2 {
+                font-size: 48px;
+                font-weight: 700;
+                letter-spacing: -0.03em;
+                line-height: 1.1;
+                margin-bottom: 16px;
+            }
+
+            .section-header p {
+                font-size: 21px;
+                color: var(--secondary-text);
+                font-weight: 400;
+                letter-spacing: -0.01em;
+            }
+
+            /* Features Section */
+            .features {
+                padding: 120px 0;
+                background: var(--background-alt);
+            }
+
+            .features-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+                gap: 32px;
+            }
+
+            .feature-card {
+                background: white;
+                padding: 48px 32px;
+                border-radius: var(--border-radius);
+                text-align: center;
+                transition: var(--transition);
+            }
+
+            .feature-card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            }
+
+            .feature-icon {
+                width: 56px;
+                height: 56px;
+                margin-bottom: 24px;
+                filter: brightness(0);
+                opacity: 0.8;
+            }
+
+            .feature-card h3 {
+                font-size: 24px;
+                font-weight: 600;
+                letter-spacing: -0.01em;
+                margin-bottom: 12px;
+            }
+
+            .feature-card p {
+                font-size: 17px;
+                color: var(--secondary-text);
+                line-height: 1.5;
+                font-weight: 400;
+            }
+
+            /* Core Features */
+            .core-features {
+                padding: 120px 0;
+            }
+
+            .feature-showcase {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 80px;
+                align-items: center;
+                margin-bottom: 120px;
+            }
+
+            .feature-showcase:nth-child(even) {
+                direction: rtl;
+            }
+
+            .feature-showcase:nth-child(even) > * {
+                direction: ltr;
+            }
+
+            .feature-showcase:last-child {
+                margin-bottom: 0;
+            }
+
+            .feature-content h3 {
+                font-size: 40px;
+                font-weight: 700;
+                letter-spacing: -0.02em;
+                margin-bottom: 12px;
+            }
+
+            .feature-content > p {
+                font-size: 21px;
+                color: var(--secondary-text);
+                margin-bottom: 32px;
+                font-weight: 400;
+            }
+
+            .feature-list {
+                list-style: none;
+            }
+
+            .feature-list li {
+                font-size: 17px;
+                color: var(--primary-text);
+                padding: 12px 0;
+                padding-left: 32px;
+                position: relative;
+                line-height: 1.5;
+            }
+
+            .feature-list li::before {
+                content: "✓";
+                position: absolute;
+                left: 0;
+                color: var(--accent);
+                font-weight: 600;
+                font-size: 18px;
+            }
+
+            .feature-visual {
+                border-radius: 24px;
+                overflow: hidden;
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+            }
+
+            .feature-visual.dark {
+                background: #000;
+            }
+
+            .feature-visual img {
+                width: 100%;
+                height: auto;
+                display: block;
+            }
+
+            /* Tracking Modes */
+            .tracking-modes {
+                padding: 120px 0;
+                background: var(--background-alt);
+            }
+
+            .modes-list {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 32px;
+            }
+
+            .mode-item {
+                background: white;
+                padding: 40px;
+                border-radius: var(--border-radius);
+                border: 1px solid rgba(0, 0, 0, 0.06);
+            }
+
+            .mode-item h4 {
+                font-size: 21px;
+                font-weight: 600;
+                margin-bottom: 12px;
+                letter-spacing: -0.01em;
+            }
+
+            .mode-item p {
+                font-size: 17px;
+                color: var(--secondary-text);
+                line-height: 1.5;
+            }
+
+            /* Analytics */
+            .analytics {
+                padding: 120px 0;
+            }
+
+            .analytics-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 80px;
+                align-items: center;
+            }
+
+            .analytics-content h3 {
+                font-size: 40px;
+                font-weight: 700;
+                letter-spacing: -0.02em;
+                margin-bottom: 32px;
+            }
+
+            .analytics-list {
+                list-style: none;
+            }
+
+            .analytics-list li {
+                font-size: 17px;
+                padding: 14px 0;
+                padding-left: 32px;
+                position: relative;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            }
+
+            .analytics-list li:last-child {
+                border-bottom: none;
+            }
+
+            .analytics-list li::before {
+                content: "→";
+                position: absolute;
+                left: 0;
+                color: var(--accent);
+                font-weight: 600;
+            }
+
+            .analytics-visual {
+                border-radius: 24px;
+                overflow: hidden;
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+            }
+
+            .analytics-visual img {
+                width: 100%;
+                height: auto;
+                display: block;
+            }
+
+            /* Privacy */
+            .privacy {
+                padding: 120px 0;
+                background: var(--background-alt);
+            }
+
+            .privacy-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+                gap: 32px;
+            }
+
+            .privacy-card {
+                background: white;
+                padding: 48px 40px;
+                border-radius: var(--border-radius);
+                text-align: center;
+            }
+
+            .privacy-card h3 {
+                font-size: 24px;
+                font-weight: 600;
+                margin: 24px 0 16px;
+                letter-spacing: -0.01em;
+            }
+
+            .privacy-card p {
+                font-size: 17px;
+                color: var(--secondary-text);
+                line-height: 1.6;
+            }
+
+            /* CTA */
+            .cta {
+                padding: 120px 0;
+                text-align: center;
+            }
+
+            .cta h2 {
+                font-size: 48px;
+                font-weight: 700;
+                letter-spacing: -0.03em;
+                margin-bottom: 16px;
+            }
+
+            .cta p {
+                font-size: 21px;
+                color: var(--secondary-text);
+                margin-bottom: 40px;
+                font-weight: 400;
+            }
+
+            .app-store-badge img {
+                height: 54px;
+                transition: var(--transition);
+            }
+
+            .app-store-badge:hover img {
+                transform: scale(1.05);
+            }
+
+            /* Footer */
+            footer {
+                background: var(--background-alt);
+                padding: 48px 0 32px;
+                border-top: 1px solid rgba(0, 0, 0, 0.08);
+            }
+
+            .footer-content {
+                display: grid;
+                grid-template-columns: 2fr 1fr 1fr;
+                gap: 64px;
+                margin-bottom: 48px;
+            }
+
+            .footer-section h4 {
+                font-size: 24px;
+                font-weight: 600;
+                margin-bottom: 16px;
+                letter-spacing: -0.01em;
+            }
+
+            .footer-section h5 {
+                font-size: 14px;
+                font-weight: 600;
+                margin-bottom: 16px;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                color: var(--secondary-text);
+            }
+
+            .footer-tagline {
+                font-size: 17px;
+                color: var(--secondary-text);
+                line-height: 1.5;
+            }
+
+            .footer-links {
+                list-style: none;
+            }
+
+            .footer-links li {
+                margin-bottom: 12px;
+            }
+
+            .footer-links a {
+                color: var(--secondary-text);
+                text-decoration: none;
+                font-size: 14px;
+                transition: var(--transition);
+            }
+
+            .footer-links a:hover {
+                color: var(--accent);
+            }
+
+            .footer-bottom {
+                padding-top: 32px;
+                border-top: 1px solid rgba(0, 0, 0, 0.08);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-size: 12px;
+                color: var(--secondary-text);
+            }
+
+            .footer-legal a {
+                color: var(--secondary-text);
+                text-decoration: none;
+                transition: var(--transition);
+            }
+
+            .footer-legal a:hover {
+                color: var(--accent);
+            }
+
+            .separator {
+                margin: 0 12px;
+            }
+
+            /* Responsive Design */
+            @media (max-width: 1024px) {
+                .hero h1 {
+                    font-size: 56px;
+                }
+
+                .tagline {
+                    font-size: 24px;
+                }
+
+                .section-header h2 {
+                    font-size: 40px;
+                }
+
+                .feature-showcase,
+                .analytics-grid {
+                    grid-template-columns: 1fr;
+                    gap: 48px;
+                }
+
+                .feature-showcase:nth-child(even) {
+                    direction: ltr;
+                }
+
+                .footer-content {
+                    grid-template-columns: 1fr;
+                    gap: 40px;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .hero {
+                    padding: 48px 24px 32px;
+                }
+
+                .hero h1 {
+                    font-size: 40px;
+                }
+
+                .tagline {
+                    font-size: 20px;
+                }
+
+                .section-header h2 {
+                    font-size: 32px;
+                }
+
+                .section-header p {
+                    font-size: 17px;
+                }
+
+                .features,
+                .core-features,
+                .tracking-modes,
+                .analytics,
+                .privacy,
+                .cta {
+                    padding: 80px 0;
+                }
+
+                .features-grid,
+                .modes-list,
+                .privacy-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .feature-content h3,
+                .analytics-content h3 {
+                    font-size: 28px;
+                }
+
+                .feature-content > p {
+                    font-size: 17px;
+                }
+
+                .footer-bottom {
+                    flex-direction: column;
+                    gap: 16px;
+                    text-align: center;
+                }
+            }
+        </style>
     </head>
     <body>
         <!-- Navigation -->
         <nav>
             <div class="nav-content">
                 <div class="logo">
-                    <img
-                        src="images/logo.png"
-                        alt="Lift logo"
-                        class="hero-logo"
-                    />
+                    <img src="images/logo.png" alt="Lift" class="hero-logo" />
                     Lift
                 </div>
                 <a
@@ -25,8 +601,9 @@
                     target="_blank"
                     rel="noopener"
                     class="download-btn"
-                    >Download</a
                 >
+                    Download
+                </a>
             </div>
         </nav>
 
@@ -34,14 +611,11 @@
         <section class="hero">
             <h1>Lift</h1>
             <p class="tagline">
-                Powerful enough for the dedicated,<br />simple enough for
+                Powerful enough for the dedicated.<br />Simple enough for
                 everyone.
             </p>
             <div class="hero-image">
-                <img
-                    src="images/hero.jpg"
-                    alt="Lift app screenshot showing workout tracking interface"
-                />
+                <img src="images/hero.jpg" alt="Lift app interface" />
             </div>
         </section>
 
@@ -49,66 +623,78 @@
         <section class="features">
             <div class="container">
                 <div class="section-header">
-                    <h2>Everything you need to track progress</h2>
-                    <p>
-                        Built exclusively with SwiftUI for the perfect iOS
-                        experience
-                    </p>
+                    <h2>Everything you need</h2>
+                    <p>Built exclusively for iPhone with SwiftUI</p>
                 </div>
                 <div class="features-grid">
                     <div class="feature-card">
                         <img
                             class="feature-icon"
                             src="images/chart.bar.fill.svg"
+                            alt=""
                         />
                         <h3>Smart Analytics</h3>
                         <p>
-                            Advanced progress analytics with KDE algorithms,
-                            confidence intervals, and trend estimations
+                            Advanced progress tracking with trend analysis and
+                            confidence intervals
                         </p>
                     </div>
                     <div class="feature-card">
                         <img
                             class="feature-icon"
                             src="images/chart.line.text.clipboard.svg"
+                            alt=""
                         />
-                        <h3>Advanced Tracking</h3>
+                        <h3>Precision Tracking</h3>
                         <p>
-                            Log exercises, weights, reps, and RIR with
-                            personalized recommendations
+                            Log weights, reps, and RIR with intelligent
+                            recommendations
                         </p>
                     </div>
                     <div class="feature-card">
-                        <img class="feature-icon" src="images/apple.logo.svg" />
-                        <h3>Native iOS Design</h3>
+                        <img
+                            class="feature-icon"
+                            src="images/apple.logo.svg"
+                            alt=""
+                        />
+                        <h3>Native Design</h3>
                         <p>
-                            Feels right at home on your iPhone with smooth,
-                            intuitive interactions
+                            Feels at home on your iPhone with intuitive, fluid
+                            interactions
                         </p>
                     </div>
                     <div class="feature-card">
-                        <img class="feature-icon" src="images/lock.fill.svg" />
+                        <img
+                            class="feature-icon"
+                            src="images/lock.fill.svg"
+                            alt=""
+                        />
                         <h3>Privacy First</h3>
                         <p>
-                            All data stored locally with Face ID, Touch ID, and
-                            device encryption
+                            All data stays on your device, protected by Face ID
+                            and encryption
                         </p>
                     </div>
                     <div class="feature-card">
-                        <img class="feature-icon" src="images/calendar.svg" />
+                        <img
+                            class="feature-icon"
+                            src="images/calendar.svg"
+                            alt=""
+                        />
                         <h3>Smart Scheduling</h3>
                         <p>
-                            Training schedules aligned to calendar weeks with
-                            streak notifications
+                            Calendar-aligned training with streak tracking and
+                            reminders
                         </p>
                     </div>
                     <div class="feature-card">
-                        <img class="feature-icon" src="images/gear.svg" />
+                        <img
+                            class="feature-icon"
+                            src="images/gear.svg"
+                            alt=""
+                        />
                         <h3>Fully Customizable</h3>
-                        <p>
-                            Equipment management, rest timers, and personalized
-                            workout settings
-                        </p>
+                        <p>Tailor every aspect to match your training style</p>
                     </div>
                 </div>
             </div>
@@ -119,105 +705,85 @@
             <div class="container">
                 <div class="section-header">
                     <h2>Designed for serious training</h2>
-                    <p>Every feature crafted to help you reach your goals</p>
+                    <p>Every detail crafted to help you reach your goals</p>
                 </div>
 
                 <div class="feature-showcase">
                     <div class="feature-content">
-                        <h3>Comprehensive Workout Tracking</h3>
-                        <p>Log every detail of your training with precision</p>
+                        <h3>Track with precision</h3>
+                        <p>Capture every detail of your workout</p>
                         <ul class="feature-list">
-                            <li>Track exercises, weights, reps, and RIR</li>
+                            <li>
+                                Log exercises, weights, reps, and RIR
+                                effortlessly
+                            </li>
                             <li>Smart warm-up and working set generation</li>
-                            <li>Equipment management with custom setups</li>
-                            <li>Manual data entry and export options</li>
-                            <li>Dynamic input fields with numpad support</li>
+                            <li>Manage equipment with custom configurations</li>
+                            <li>Export your data anytime, anywhere</li>
+                            <li>Dynamic inputs optimized for speed</li>
                         </ul>
                     </div>
                     <div class="feature-visual">
-                        <img
-                            src="images/tracking.jpg"
-                            alt="Workout tracking interface"
-                            style="
-                                width: 100%;
-                                height: auto;
-                                border-radius: 0px;
-                            "
-                        />
+                        <img src="images/tracking.jpg" alt="Workout tracking" />
                     </div>
                 </div>
 
                 <div class="feature-showcase">
                     <div class="feature-content">
-                        <h3>Intelligent Progress Analytics</h3>
-                        <p>Transform your data into actionable insights</p>
+                        <h3>Understand your progress</h3>
+                        <p>Data-driven insights for smarter training</p>
                         <ul class="feature-list">
-                            <li>Advanced KDE algorithms for trend analysis</li>
-                            <li>Charts with confidence intervals</li>
-                            <li>Bodyweight tracking with consent</li>
-                            <li>Calorie estimation improvements</li>
-                            <li>Detailed statistics and annotations</li>
+                            <li>Advanced algorithms reveal true trends</li>
+                            <li>Confidence intervals show reliable progress</li>
+                            <li>Track bodyweight changes over time</li>
+                            <li>Detailed statistics with visual annotations</li>
+                            <li>Estimated calorie burn per workout</li>
                         </ul>
                     </div>
                     <div class="feature-visual dark">
                         <img
                             src="images/analytics.jpg"
-                            alt="Analytics dashboard"
-                            style="
-                                width: 100%;
-                                height: auto;
-                                border-radius: 12px;
-                            "
+                            alt="Progress analytics"
                         />
                     </div>
                 </div>
 
                 <div class="feature-showcase">
                     <div class="feature-content">
-                        <h3>Personalized Experience</h3>
-                        <p>Your workout app, tailored to you</p>
+                        <h3>Personalized for you</h3>
+                        <p>An experience that adapts to your journey</p>
                         <ul class="feature-list">
-                            <li>Dashboard with streaks and key metrics</li>
+                            <li>Dashboard highlighting your key metrics</li>
                             <li>Personalized greetings and profiles</li>
-                            <li>Locale-aware data display</li>
-                            <li>In-app tips with TipKit</li>
-                            <li>Toast notifications for actions</li>
+                            <li>Data displayed in your preferred format</li>
+                            <li>Contextual tips at the right moment</li>
+                            <li>Instant feedback for every action</li>
                         </ul>
                     </div>
                     <div class="feature-visual">
                         <img
                             src="images/dashboard.jpg"
-                            alt="Personalized dashboard"
-                            style="
-                                width: 100%;
-                                height: auto;
-                                border-radius: 12px;
-                            "
+                            alt="Personal dashboard"
                         />
                     </div>
                 </div>
 
                 <div class="feature-showcase">
                     <div class="feature-content">
-                        <h3>Stay Consistent</h3>
-                        <p>Never miss a workout with smart reminders</p>
+                        <h3>Stay consistent</h3>
+                        <p>Build lasting habits with smart reminders</p>
                         <ul class="feature-list">
-                            <li>Calendar-aligned training schedules</li>
-                            <li>Streak and risk notifications</li>
-                            <li>Stale workout alerts</li>
-                            <li>Workout duration estimates</li>
-                            <li>Weekday selector highlights</li>
+                            <li>Training schedules aligned to your week</li>
+                            <li>Streak notifications keep you motivated</li>
+                            <li>Alerts when workouts become stale</li>
+                            <li>Estimated workout durations</li>
+                            <li>Visual highlights for active training days</li>
                         </ul>
                     </div>
                     <div class="feature-visual dark">
                         <img
                             src="images/exercise_analytics.jpeg"
-                            alt="Workout scheduling"
-                            style="
-                                width: 100%;
-                                height: auto;
-                                border-radius: 12px;
-                            "
+                            alt="Consistency tracking"
                         />
                     </div>
                 </div>
@@ -229,7 +795,7 @@
             <div class="container">
                 <div class="section-header">
                     <h2>Three ways to track</h2>
-                    <p>Precision tracking for every exercise type</p>
+                    <p>Perfect precision for every exercise type</p>
                 </div>
                 <div class="modes-list">
                     <div class="mode-item">
@@ -255,33 +821,26 @@
             <div class="container">
                 <div class="section-header">
                     <h2>Insights that drive results</h2>
-                    <p>
-                        Transform your workout data into actionable intelligence
-                    </p>
+                    <p>Turn your data into actionable intelligence</p>
                 </div>
                 <div class="analytics-grid">
                     <div class="analytics-content">
-                        <h3>Your personal dashboard</h3>
+                        <h3>Your command center</h3>
                         <ul class="analytics-list">
                             <li>Weekly volume comparisons</li>
-                            <li>Consistency metrics and streaks</li>
-                            <li>Muscle group distribution</li>
+                            <li>Consistency metrics and active streaks</li>
+                            <li>Muscle group distribution analysis</li>
                             <li>Apple Health integration</li>
                             <li>Smoothed bodyweight trends</li>
                             <li>Assisted weight calculations</li>
-                            <li>1RM estimations and progress tracking</li>
-                            <li>Advanced trend analysis with KDE</li>
+                            <li>1RM estimations and tracking</li>
+                            <li>Advanced trend analysis</li>
                         </ul>
                     </div>
                     <div class="analytics-visual">
                         <img
                             src="images/dashboard.jpg"
-                            alt="Lift dashboard showing workout analytics"
-                            style="
-                                width: 100%;
-                                height: auto;
-                                border-radius: 12px;
-                            "
+                            alt="Analytics dashboard"
                         />
                     </div>
                 </div>
@@ -297,17 +856,22 @@
                 </div>
                 <div class="privacy-grid">
                     <div class="privacy-card">
-                        <img class="feature-icon" src="images/lock.fill.svg" />
+                        <img
+                            class="feature-icon"
+                            src="images/lock.fill.svg"
+                            alt=""
+                        />
                         <h3>100% Local Storage</h3>
                         <p>
-                            All data stored on your device using SwiftData. No
-                            cloud servers, no external transmission.
+                            All data stored securely on your device. No cloud
+                            servers, no external transmission.
                         </p>
                     </div>
                     <div class="privacy-card">
                         <img
                             class="feature-icon"
                             src="images/shield.fill.svg"
+                            alt=""
                         />
                         <h3>Device Security</h3>
                         <p>
@@ -319,11 +883,12 @@
                         <img
                             class="feature-icon"
                             src="images/text.document.svg"
+                            alt=""
                         />
                         <h3>GDPR Compliant</h3>
                         <p>
                             Full control with access, rectification, erasure,
-                            portability, and consent withdrawal rights.
+                            and portability rights built in.
                         </p>
                     </div>
                 </div>
@@ -333,10 +898,8 @@
         <!-- CTA -->
         <section class="cta" id="download">
             <div class="container">
-                <h2>Start tracking smarter today</h2>
-                <p>
-                    Join a growing community of lifters improving their training
-                </p>
+                <h2>Start your journey today</h2>
+                <p>Join lifters transforming their training</p>
                 <a
                     href="https://apps.apple.com/at/app/lift-power-simplified/id6745401053"
                     class="app-store-badge"
@@ -358,7 +921,7 @@
                     <div class="footer-section">
                         <h4>Lift</h4>
                         <p class="footer-tagline">
-                            Powerful enough for the dedicated,<br />simple
+                            Powerful enough for the dedicated.<br />Simple
                             enough for everyone.
                         </p>
                     </div>
@@ -379,25 +942,19 @@
                             </li>
                         </ul>
                     </div>
+
                     <div class="footer-section">
                         <h5>Connect</h5>
                         <ul class="footer-links">
                             <li>
                                 <a
                                     href="https://www.threads.com/@david_fruehwirth?igshid=NTc4MTIwNjQ2YQ=="
+                                    target="_blank"
+                                    rel="noopener"
                                     >Threads</a
                                 >
                             </li>
-                            <li>
-                                <a href="story.html">The Story</a>
-                            </li>
-                            <!-- --
-                            <li>
-                                <a href="https://instagram.com/liftapp"
-                                    >Instagram</a
-                                >
-                            </li>
-                            -->
+                            <li><a href="story.html">The Story</a></li>
                         </ul>
                     </div>
                 </div>
