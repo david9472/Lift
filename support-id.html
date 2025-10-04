@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>About Support ID - Lift</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <nav>
+            <div class="nav-content">
+                <div class="logo">Lift</div>
+                <a href="#" class="download-btn">Download on App Store</a>
+            </div>
+        </nav>
+
+        <div class="legal-content">
+            <h1>About Support ID</h1>
+
+            <p class="intro">
+                Support ID is a code your device creates when you choose to
+                share App Analytics. It lets Support locate the diagnostic logs
+                your app has already sent, so issues you report can be
+                investigated faster and more accurately.
+            </p>
+
+            <ul>
+                <li>
+                    <strong>Support ID</strong> connects your support request to
+                    existing, anonymous diagnostics.
+                </li>
+                <li>
+                    <strong>Support ID</strong> does not identify you
+                    personally.
+                </li>
+            </ul>
+
+            <h2>Requirements</h2>
+
+            <p>To use Support ID, you need:</p>
+
+            <ul>
+                <li>The app installed and able to access its Settings.</li>
+                <li>
+                    <strong>Share App Analytics</strong> turned on in your app
+                    settings.
+                </li>
+            </ul>
+
+            <div class="note-box">
+                <p>
+                    <strong>Note:</strong> If you do not share App Analytics, a
+                    Support ID will not be created.
+                </p>
+            </div>
+
+            <h2>Find and Share Your Support ID</h2>
+
+            <ol>
+                <li>Open the app.</li>
+                <li>Go to <strong>Account</strong>.</li>
+                <li>Tap <strong>Data & Storage</strong>.</li>
+                <li>Find <strong>Support ID</strong>.</li>
+                <li>
+                    When you contact Support, provide the Support ID exactly as
+                    shown.
+                </li>
+            </ol>
+
+            <p>
+                <strong>Tip:</strong> Tab the Support ID to
+                <strong>copy</strong> it and avoid transcription errors.
+            </p>
+
+            <h2>What Support ID Is Not</h2>
+
+            <ul>
+                <li>
+                    It does not contain your name, email, Apple ID, or any
+                    personal details.
+                </li>
+                <li>
+                    It cannot be used to track you across different apps or
+                    services.
+                </li>
+                <li>
+                    It changes if you delete and reinstall the app. Past data
+                    cannot be linked to new installations.
+                </li>
+            </ul>
+
+            <h2>How Support ID Is Created</h2>
+
+            <p>
+                To keep Support ID stable for troubleshooting and private for
+                your identity, the app uses a multi-step process:
+            </p>
+
+            <ol>
+                <li>
+                    Start with a system-provided, app-scoped device identifier.
+                </li>
+                <li>
+                    Generate a random, app-specific salt (a secret value used
+                    once), stored only on your device.
+                </li>
+                <li>
+                    Combine the identifier and salt, then process them with a
+                    strong cryptographic hash function (a one-way algorithm).
+                </li>
+                <li>
+                    Shorten the result into the Support ID shown in the app's
+                    Settings.
+                </li>
+            </ol>
+
+            <p>This design ensures:</p>
+
+            <ul>
+                <li>
+                    The Support ID looks different from the underlying system
+                    identifier.
+                </li>
+                <li>
+                    The process cannot be reversed to reveal your device or
+                    personal information.
+                </li>
+                <li>
+                    Reinstalling the app creates a new salt and a new Support
+                    ID, preventing links to prior installations.
+                </li>
+            </ul>
+
+            <h2>Privacy by Design</h2>
+
+            <p>By design, your Support ID is:</p>
+
+            <ul>
+                <li>
+                    <strong>Anonymous</strong>: it cannot be traced back to you
+                    personally.
+                </li>
+                <li>
+                    <strong>Non-persistent across reinstalls</strong>: each
+                    installation creates a new Support ID.
+                </li>
+                <li>
+                    <strong>Purpose-limited</strong>: used only to match your
+                    request to diagnostic logs for troubleshooting.
+                </li>
+            </ul>
+
+            <p>
+                These protections are repeated here for clarity: Support ID is
+                anonymous, it resets on reinstall, and it is used only for
+                support.
+            </p>
+
+            <h2>Reinstalling the App</h2>
+
+            <ul>
+                <li>
+                    If you delete and reinstall the app, your Support ID
+                    changes.
+                </li>
+                <li>
+                    After reinstall, provide the new Support ID when you contact
+                    Support.
+                </li>
+                <li>
+                    Previous Support IDs cannot be connected to the new
+                    installation.
+                </li>
+            </ul>
+
+            <h2>Troubleshooting</h2>
+
+            <h3>If you can't find Support ID in the app:</h3>
+
+            <ul>
+                <li>Update the app to the latest version.</li>
+                <li>Check <strong>Account > Data & Storage</strong>.</li>
+                <li>Contact Support and describe where you looked.</li>
+            </ul>
+
+            <h3>If Support can't locate your logs with the ID you provided:</h3>
+
+            <ul>
+                <li>
+                    Confirm that <strong>Share App Analytics</strong> is turned
+                    on.
+                </li>
+                <li>
+                    Verify you're reading the Support ID from the same device
+                    and app installation where the issue occurred.
+                </li>
+            </ul>
+
+            <h3>Turn on Share App Analytics:</h3>
+
+            <ul>
+                <li>
+                    On your device, go to
+                    <strong>Account > Data & Storage > Analytics</strong>.
+                </li>
+                <li>Turn on <strong>Share App Analytics</strong>.</li>
+                <li>
+                    If prompted, restart the app (close it completely and reopen
+                    it).
+                </li>
+                <li>
+                    Return to
+                    <strong>Account > Data & Storage > Analytics</strong> to
+                    view your Support ID.
+                </li>
+            </ul>
+
+            <h3>After reinstall:</h3>
+
+            <ul>
+                <li>Expect a new Support ID.</li>
+                <li>
+                    If you had an existing support case, share your new Support
+                    ID.
+                </li>
+            </ul>
+        </div>
+
+        <footer>
+            <div class="container">
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Lift. All rights reserved.</p>
+                    <div class="footer-legal">
+                        <a href="privacy-policy.html">Privacy Policy</a>
+                        <span class="separator">|</span>
+                        <a href="story.html">Story</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

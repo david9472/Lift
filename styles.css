@@ -15,14 +15,20 @@
 }
 
 body {
-    font-family:
-        -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
-        "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: var(--text-primary);
-    background: var(--bg-primary);
-    line-height: 1.47059;
+    font-size: 17px;
+    line-height: 1.4705882353;
     font-weight: 400;
     letter-spacing: -0.022em;
+    font-family:
+        SF Pro Text,
+        SF Pro Icons,
+        Helvetica Neue,
+        Helvetica,
+        Arial,
+        sans-serif;
+    color: var(--sk-body-text-color, rgb(29, 29, 31));
+    font-style: normal;
+    background-color: var(--sk-body-background-color, rgb(255, 255, 255));
 }
 
 /* Navigation */
@@ -113,14 +119,23 @@ footer {
 
 /* Legal Content Styles */
 .legal-content {
-    max-width: 720px;
+    max-width: 980px;
     margin: 0 auto;
     padding: 120px 22px 80px;
 }
 
+.legal-content .intro {
+    font-size: 20px;
+    line-height: 1.381;
+    font-weight: 395;
+    letter-spacing: 0.011em;
+    color: var(--text-primary);
+    margin-bottom: 32px;
+}
+
 .legal-content h1 {
     font-size: 48px;
-    font-weight: 600;
+    font-weight: 500;
     margin-bottom: 24px;
 }
 
@@ -131,15 +146,15 @@ footer {
 }
 
 .legal-content h2 {
-    font-size: 28px;
-    font-weight: 600;
+    font-size: 40px;
+    font-weight: 450;
     margin-top: 48px;
     margin-bottom: 16px;
 }
 
 .legal-content h3 {
     font-size: 21px;
-    font-weight: 600;
+    font-weight: 450;
     margin-top: 32px;
     margin-bottom: 12px;
 }
@@ -152,6 +167,11 @@ footer {
 }
 
 .legal-content ul {
+    margin: 16px 0;
+    padding-left: 24px;
+}
+
+.legal-content ol {
     margin: 16px 0;
     padding-left: 24px;
 }
@@ -175,7 +195,7 @@ footer {
 }
 
 .legal-content a {
-    color: var(--text-link);
+    color: #0071e3;
     text-decoration: none;
 }
 
@@ -199,11 +219,11 @@ footer {
 }
 
 .note-box {
-    background: #fef7e0;
+    background: #fff8e5;
     border-left: 4px solid #f5a623;
     padding: 16px;
     margin: 24px 0;
-    border-radius: 0 8px 8px 0;
+    border-radius: 6px;
 }
 
 .note-box p {
