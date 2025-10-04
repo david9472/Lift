@@ -21,24 +21,28 @@ nav {
 }
 
 .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     font-size: 21px;
     font-weight: 600;
-    color: var(--text-primary);
+    letter-spacing: -0.02em;
 }
 
 .download-btn {
     background: var(--accent);
     color: white;
-    padding: 8px 16px;
-    border-radius: 20px;
+    padding: 8px 20px;
+    border-radius: 980px;
     text-decoration: none;
     font-size: 14px;
-    font-weight: 400;
-    transition: all 0.3s ease;
+    font-weight: 500;
+    transition: var(--transition);
 }
 
 .download-btn:hover {
-    background: #0077ed;
+    background: var(--accent-hover);
+    transform: scale(1.02);
 }
 
 /* Container */

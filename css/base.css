@@ -18,20 +18,15 @@
 
 /* Base body styles */
 body {
-    font-size: 17px;
-    line-height: 1.4705882353;
-    font-weight: 400;
-    letter-spacing: -0.022em;
     font-family:
-        SF Pro Text,
-        SF Pro Icons,
-        Helvetica Neue,
-        Helvetica,
-        Arial,
-        sans-serif;
-    color: var(--sk-body-text-color, rgb(29, 29, 31));
-    font-style: normal;
-    background-color: var(--sk-body-background-color, rgb(255, 255, 255));
+        -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+        "Helvetica Neue", sans-serif;
+    color: var(--primary-text);
+    background: var(--background);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
 }
 
 /* Dark mode */

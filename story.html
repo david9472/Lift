@@ -4,178 +4,11 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>The Story Behind Lift</title>
-        <link rel="stylesheet" href="styles.css" />
-        <style>
-            /* Additional styles for the story page */
-            .story-hero {
-                text-align: center;
-                padding-top: 140px;
-                padding-bottom: 40px;
-            }
-            .story-hero h1 {
-                font-size: 48px;
-                font-weight: 700;
-                margin-bottom: 16px;
-                letter-spacing: -0.02em;
-            }
-            .story-hero p {
-                color: var(--text-secondary);
-                font-size: 21px;
-                max-width: 600px;
-                margin: 0 auto;
-                margin-bottom: 0;
-            }
-            .story-content {
-                max-width: 720px;
-                margin: 0 auto;
-                padding: 0 22px 80px;
-            }
-            .story-content h2 {
-                font-size: 28px;
-                font-weight: 600;
-                margin-top: 48px;
-                margin-bottom: 18px;
-                color: var(--text-primary);
-            }
-            .story-content h3 {
-                font-size: 21px;
-                font-weight: 600;
-                margin-top: 36px;
-                margin-bottom: 14px;
-                color: var(--text-primary);
-            }
-            .story-content p {
-                font-size: 18px;
-                line-height: 1.7;
-                margin-bottom: 22px;
-            }
-            .story-content ul {
-                margin: 18px 0 24px 24px;
-                padding-left: 0;
-            }
-            .story-content li {
-                font-size: 18px;
-                margin-bottom: 10px;
-                line-height: 1.6;
-            }
-            .author-signature {
-                margin-top: 48px;
-                font-size: 18px;
-                color: var(--text-secondary);
-                text-align: right;
-            }
-            @media (max-width: 768px) {
-                .story-hero h1 {
-                    font-size: 32px;
-                }
-                .story-hero p {
-                    font-size: 17px;
-                }
-                .story-content h2 {
-                    font-size: 22px;
-                }
-            }
-
-            .glass-bubbles {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100vw;
-                height: 100vh;
-                pointer-events: none;
-                z-index: 0;
-                overflow: hidden;
-            }
-
-            .bubble {
-                position: absolute;
-                border-radius: 50%;
-                filter: blur(0.5px) saturate(1.2);
-                opacity: 0.45;
-                background: linear-gradient(
-                    135deg,
-                    rgba(0, 113, 227, 0.25) 0%,
-                    rgba(0, 212, 255, 0.18) 100%
-                );
-                box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.12);
-                backdrop-filter: blur(18px) saturate(1.4);
-                -webkit-backdrop-filter: blur(18px) saturate(1.4);
-                transition: opacity 0.6s;
-            }
-
-            /* Individual bubble positions, sizes, and colors */
-            .bubble-1 {
-                width: 420px;
-                height: 420px;
-                top: -120px;
-                left: -120px;
-                background: linear-gradient(
-                    135deg,
-                    rgba(0, 113, 227, 0.28) 0%,
-                    rgba(0, 212, 255, 0.16) 100%
-                );
-            }
-
-            .bubble-2 {
-                width: 300px;
-                height: 300px;
-                bottom: 10%;
-                right: -100px;
-                background: linear-gradient(
-                    120deg,
-                    rgba(255, 87, 34, 0.17) 0%,
-                    rgba(255, 193, 7, 0.13) 100%
-                );
-            }
-
-            .bubble-3 {
-                width: 220px;
-                height: 340px;
-                top: 45%;
-                left: 60%;
-                background: linear-gradient(
-                    120deg,
-                    rgba(76, 217, 100, 0.13) 0%,
-                    rgba(52, 199, 89, 0.19) 100%
-                );
-            }
-
-            @media (max-width: 768px) {
-                .bubble-1 {
-                    width: 220px;
-                    height: 220px;
-                    top: -60px;
-                    left: -60px;
-                }
-                .bubble-2 {
-                    width: 140px;
-                    height: 140px;
-                    bottom: 8%;
-                    right: -40px;
-                }
-                .bubble-3 {
-                    width: 110px;
-                    height: 180px;
-                    top: 55%;
-                    left: 55%;
-                }
-            }
-
-            nav,
-            .story-hero,
-            .story-content,
-            footer {
-                position: relative;
-                z-index: 1;
-            }
-        </style>
+        <link rel="stylesheet" href="css/base.css" />
+        <link rel="stylesheet" href="css/layout.css" />
+        <link rel="stylesheet" href="css/story.css" />
     </head>
     <body>
-        <div class="glass-bubbles">
-            <div class="bubble bubble-1"></div>
-            <div class="bubble bubble-2"></div>
-            <div class="bubble bubble-3"></div>
-        </div>
         <!-- Navigation -->
         <nav>
             <div class="nav-content">
@@ -193,7 +26,7 @@
         <!-- Story Content -->
         <div class="story-content">
             <p>
-                Hi, I’m David—a 25-year-old software developer, university
+                Hi, I'm David—a 25-year-old software developer, university
                 student, and lifelong fitness enthusiast from Austria. My
                 journey with this app began not just with lines of code, but
                 with a deep conviction: physical fitness is one of the greatest
@@ -202,8 +35,8 @@
                 move through the world.
             </p>
             <p>
-                As someone who’s passionate about data science and machine
-                learning, I’ve always been fascinated by the stories that data
+                As someone who's passionate about data science and machine
+                learning, I've always been fascinated by the stories that data
                 can tell. I believe that with enough information and the right
                 tools, we can unlock new levels of understanding and
                 progress—both in science and in our personal lives. The recent
@@ -218,10 +51,10 @@
                 I created this app because I saw a gap in the fitness world.
                 Social media is full of conflicting advice, sacred exercises,
                 and endless trends. But for most people, the real key to
-                progress isn’t hidden knowledge—it’s consistency. Week after
+                progress isn't hidden knowledge—it's consistency. Week after
                 week. Month after month. Year after year. As James Clear says,
-                “It’s not that hard on any given day, but the trick is you can’t
-                skip days.” Reasonable, regular effort beats sporadic intensity
+                "It's not that hard on any given day, but the trick is you can't
+                skip days." Reasonable, regular effort beats sporadic intensity
                 every time.
             </p>
             <p>
@@ -229,7 +62,7 @@
                 fitness accessible to everyone—without requiring endless
                 research or guesswork. I wanted to create something that
                 empowers you to track your progress, understand your strengths,
-                and make smarter decisions in the gym. Whether you’re a beginner
+                and make smarter decisions in the gym. Whether you're a beginner
                 or a seasoned lifter, this app is designed to support your
                 journey and help you stay consistent.
             </p>
@@ -238,7 +71,7 @@
             <p>
                 From the start, I focused on putting the user first. Your data
                 stays on your device—private, secure, and fully under your
-                control. There’s no third-party tracking, no hidden data
+                control. There's no third-party tracking, no hidden data
                 sharing. You can export, clear, or delete your information at
                 any time. The app is built around your needs, with features
                 like:
@@ -266,16 +99,16 @@
                 But this is just the beginning. My vision is to create a
                 platform that not only tracks your workouts, but also learns
                 from your data—offering tailored advice, smarter training
-                cycles, and advanced recovery metrics. In the next phases, I’ll
+                cycles, and advanced recovery metrics. In the next phases, I'll
                 be integrating expert systems and AI-driven recommendations to
                 help you train even more effectively.
             </p>
 
             <h2>Your Role in This Journey</h2>
             <p>
-                Here’s where you come in. As a user, you’re not just benefiting
-                from the app—you’re helping to shape its future. In about a
-                year, I’ll be inviting users to donate their anonymized workout
+                Here's where you come in. As a user, you're not just benefiting
+                from the app—you're helping to shape its future. In about a
+                year, I'll be inviting users to donate their anonymized workout
                 data for scientific research. This data will be the foundation
                 of my master thesis in computer science, enabling me to develop
                 better models, uncover new insights, and improve the app for
@@ -283,7 +116,7 @@
             </p>
             <p>
                 Your participation is crucial. By using the app and (optionally)
-                contributing your data, you’re helping to advance scientific
+                contributing your data, you're helping to advance scientific
                 understanding of fitness and human performance. Together, we can
                 build tools that empower people everywhere to train smarter,
                 stay healthier, and reach their goals.
@@ -291,12 +124,12 @@
 
             <h2>Fitness Is More Than Just Muscle</h2>
             <p>
-                I believe that being fit isn’t just about looking good—it’s
-                about living well. It’s about the confidence you carry, the
+                I believe that being fit isn't just about looking good—it's
+                about living well. It's about the confidence you carry, the
                 standards you set, and the example you lead for others. The gym
                 teaches us about failure, resilience, and growth. It humbles us,
                 breaks us down, and builds us back up. Your progress is a direct
-                reflection of your effort—there’s no luck involved.
+                reflection of your effort—there's no luck involved.
             </p>
             <p>
                 I train for my family, for my future, and for the peace it
@@ -307,11 +140,11 @@
             <p>
                 Thank you for being part of this journey. Your commitment, your
                 feedback, and your trust are what make this project possible.
-                Together, we’re not just building stronger bodies—we’re building
+                Together, we're not just building stronger bodies—we're building
                 a stronger community.
             </p>
             <div class="author-signature">
-                Let’s make progress, one workout at a time.<br /><br />
+                Let's make progress, one workout at a time.<br /><br />
                 — David
             </div>
         </div>
@@ -324,7 +157,7 @@
                     <p class="footer-legal">
                         <a href="privacy-policy.html">Privacy Policy</a>
                         <span class="separator">|</span>
-                        <a href="terms.html">Terms of Use</a>
+                        <a href="terms-of-service.html">Terms of Use</a>
                     </p>
                 </div>
             </div>
