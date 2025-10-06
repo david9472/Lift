@@ -17,7 +17,6 @@
     --accent: #0071e3; /* your normal button color */
     --accent-hover: #0077ed; /* slightly lighter/darker for hover */
 }
-
 /* Base body styles */
 body {
     font-family:
@@ -39,6 +38,7 @@ body {
         --text-link: #4ea1ff;
         --bg-primary: #18181a;
         --bg-secondary: #232326;
+        --bg-tertiary: #48484a;
         --bg-dark: #000000;
         --accent: #2997ff;
     }
