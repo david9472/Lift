@@ -1,0 +1,546 @@
+{
+  "title": "Privacy Policy",
+  "lastUpdated": "2025-05-01",
+  "sections": [
+    {
+      "heading": "Introduction and Data Controller Information",
+      "content": "Lift ('we', 'our', or 'us') is committed to protecting your privacy. This Privacy Policy explains how we collect, use, store, and protect your personal information when you use our Lift mobile application.",
+      "blockType": "default",
+      "sections": [
+        {
+          "heading": "Data Controller Information",
+          "content": "",
+          "blockType": "default",
+          "listType": "bullet",
+          "items": [
+            "Legal Name: Frühwirth David",
+            "Business Address: -",
+            "Registration Number: -",
+            "Country of Incorporation: Austria",
+            "Email: support@liftapp.org"
+          ],
+          "sections": []
+        },
+        {
+          "heading": "Information We Collect",
+          "content": "We collect the following types of personal data:",
+          "blockType": "default",
+          "listType": "bullet",
+          "items": [
+            "Workout Data: Information you enter such as exercise names, weight lifted, number of repetitions (reps), and Rate of Perceived Exertion (RIR).",
+            "Bodyweight Data: Your current bodyweight, only if you provide explicit consent.",
+            "Device Information: Basic information about your device (model, operating system version) for troubleshooting purposes only.",
+            "Installation ID: A unique, randomly generated identifier for your app installation (stored locally and used only to link your voluntary data submissions)"
+          ],
+          "sections": []
+        },
+        {
+          "heading": "Information We Do Not Collect",
+          "content": "We do not collect:",
+          "blockType": "default",
+          "listType": "bullet",
+          "items": [
+            "Location data",
+            "Browsing history",
+            "Contact information (unless you contact us directly)",
+            "Payment information"
+          ],
+          "sections": []
+        },
+        {
+          "heading": "Privacy by Design",
+          "content": "We use pseudonymization to ensure that even we cannot identify who submitted which data. This protects your privacy but means you can only manage data from your current app installation",
+          "blockType": "default",
+          "listType": "bullet",
+          "items": [],
+          "sections": []
+        }
+      ]
+    },
+    {
+      "heading": "How We Collect Information",
+      "content": "",
+      "blockType": "default",
+      "listType": "bullet",
+      "items": [
+        "Direct Input: All data is collected directly from you through manual input within the app.",
+        "Device Information: Collected automatically when you use the app.",
+        "We do not collect data from third-party sources."
+      ],
+      "sections": []
+    },
+    {
+      "heading": "Legal Basis for Processing (GDPR Article 6)",
+      "content": "We process your personal data based on the following legal grounds:",
+      "blockType": "default",
+      "listType": "bullet",
+      "items": [],
+      "sections": [
+        {
+          "heading": "Consent",
+          "content": "",
+          "blockType": "default",
+          "listType": "bullet",
+          "items": [
+            "We collect and process your workout and bodyweight data based on your explicit consent, which you provide when entering data into the app.",
+            "For optional questionnaires, consent is demonstrated by your voluntary choice to complete and submit responses (you can dismiss questionnaires at any time).",
+            "For training data donation, we obtain separate explicit consent through a clear opt-in prompt."
+          ],
+          "sections": []
+        },
+        {
+          "heading": "Contractual Necessity",
+          "content": "Processing is necessary to provide you with the core functionality of the app.",
+          "blockType": "default",
+          "listType": "bullet",
+          "items": [],
+          "sections": []
+        },
+        {
+          "heading": "Legitimate Interests",
+          "content": "For app improvement and academic research purposes, based on your voluntary participation and consent.",
+          "blockType": "default",
+          "listType": "bullet",
+          "items": [],
+          "sections": []
+        }
+      ]
+    },
+    {
+      "heading": "Purpose of Data Collection",
+      "content": "We collect and use your data only for the following purposes:",
+      "blockType": "default",
+      "listType": "bullet",
+      "items": [],
+      "sections": [
+        {
+          "heading": "Local Data (Stored on Your Device):",
+          "content": "",
+          "blockType": "default",
+          "listType": "bullet",
+          "items": [
+            "To track your fitness progress over time",
+            "To personalize your workout experience",
+            "To allow you to monitor changes in your bodyweight (only if you consent)"
+          ],
+          "sections": []
+        },
+        {
+          "heading": "Optional Cloud-Stored Data (Voluntary Participation):",
+          "content": "",
+          "blockType": "default",
+          "listType": "bullet",
+          "items": [],
+          "sections": [
+            {
+              "heading": "Questionnaire Results",
+              "content": "To improve app functionality, user experience, and support academic research as part of a master's thesis project",
+              "blockType": "default",
+              "listType": "bullet",
+              "items": [
+                "Participation is voluntary; you can dismiss questionnaires without consequence",
+                "Data is encrypted and accessible only to authorized research personnel"
+              ],
+              "sections": []
+            },
+            {
+              "heading": "Donated Training Data",
+              "content": "To conduct academic research on fitness training patterns and effectiveness",
+              "blockType": "default",
+              "listType": "bullet",
+              "items": [
+                "Only collected if you explicitly accept the donation prompt",
+                "Data is encrypted and accessible only to authorized research personnel"
+              ],
+              "sections": []
+            }
+          ]
+        },
+        {
+          "heading": "",
+          "content": "We do not use your data for:",
+          "blockType": "default",
+          "listType": "bullet",
+          "items": [
+            "Advertising or marketing purposes",
+            "Selling to third parties",
+            "Building user profiles for commercial purposes beyond the stated research objectives"
+          ],
+          "sections": []
+        }
+      ]
+    },
+    {
+      "heading": "Data Storage and Security",
+      "content": "",
+      "blockType": "default",
+      "listType": "bullet",
+      "items": [],
+      "sections": [
+        {
+          "heading": "Local Storage",
+          "content": "",
+          "blockType": "default",
+          "listType": "bullet",
+          "items": [
+            "Local Storage: By default, all collected data is stored locally on your device using Apple's SwiftData framework.",
+            "No External Transmission: Unless you voluntarily participate in optional questionnaires or donate training data, we do not transmit or store your data on external servers or cloud services.",
+            "Device Backups: If you use your device's backup functionality, your app data may be included in these backups according to your device settings."
+          ],
+          "sections": []
+        },
+        {
+          "heading": "Optional Cloud Storage (Voluntary Participation)",
+          "content": "You may choose to participate in optional features that involve cloud storage:",
+          "blockType": "default",
+          "listType": "bullet",
+          "items": [],
+          "sections": [
+            {
+              "heading": "a) Questionnaire Results (Voluntary)",
+              "content": "",
+              "blockType": "default",
+              "listType": "bullet",
+              "items": [
+                "Questionnaires are entirely optional and can be dismissed at any time",
+                "By choosing to complete and submit a questionnaire, you consent to storing your responses",
+                "Your responses are encrypted on your device before transmission",
+                "Data is stored encrypted on Supabase servers and can only be decrypted by authorized research personnel",
+                "Used for app improvement and academic research purposes"
+              ],
+              "sections": []
+            },
+            {
+              "heading": "b) Training Data Donation (Voluntary)",
+              "content": "",
+              "blockType": "default",
+              "listType": "bullet",
+              "items": [
+                "You may be prompted to donate your training data for academic research",
+                "This is entirely voluntary and can be declined without affecting your app experience",
+                "If you accept, your workout data is encrypted on your device before transmission",
+                "Data is stored encrypted on our secure servers and can only be decrypted by authorized research personnel"
+              ],
+              "sections": []
+            }
+          ]
+        },
+        {
+          "heading": "Data Security Measures",
+          "content": "We implement appropriate technical measures to protect your personal data",
+          "blockType": "default",
+          "listType": "bullet",
+          "items": [],
+          "sections": [
+            {
+              "heading": "Local Data",
+              "content": "",
+              "blockType": "default",
+              "listType": "bullet",
+              "items": [
+                "Secure local storage using Apple's SwiftData framework",
+                "Integration with device-level security (Face ID, Touch ID, passcode protection)",
+                "Encryption of sensitive data at rest where feasible"
+              ],
+              "sections": []
+            },
+            {
+              "heading": "Cloud-Stored Data (End-to-End Encryption)",
+              "content": "",
+              "blockType": "default",
+              "listType": "bullet",
+              "items": [
+                "Client-Side Encryption: All data is encrypted on your device before leaving it",
+                "Zero-Knowledge Architecture: Data is stored encrypted on Supabase servers; the service provider cannot access the unencrypted content",
+                "Secure Key Management: Decryption keys are securely managed and accessible only to authorized research personnel",
+                "Transmission Security: Encrypted data is transmitted using industry-standard TLS protocols",
+                "Access Controls: Strict access controls limit who can decrypt and view the data",
+                "GDPR-Compliant Infrastructure: Hosted on Supabase servers located in Central Europe (Zurich)"
+              ],
+              "sections": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "heading": "Anonymous App Analytics",
+      "content": "",
+      "blockType": "default",
+      "sections": [
+        {
+          "heading": "Nature of Data",
+          "content": "The anonymous analytics we collect include:",
+          "blockType": "default",
+          "listType": "bullet",
+          "items": [
+            "App performance metrics (such as load times and memory usage)",
+            "Feature usage patterns (which features are used most frequently)",
+            "Error logs and crash reports",
+            "System information (OS version, device model)",
+            "A randomly generated device identifier that helps us distinguish between different devices in our analytics"
+          ],
+          "sections": []
+        },
+        {
+          "heading": "Privacy Safeguards",
+          "content": "",
+          "blockType": "default",
+          "listType": "bullet",
+          "items": [
+            "The device identifier is randomly generated and not linked to your Apple ID or other personal information",
+            "All analytics data is stored separately from any personal workout data",
+            "Analytics data is automatically deleted after two weeks (up to four weeks for troubleshooting)",
+            "We implement technical measures to minimize any potential for identification"
+          ],
+          "sections": []
+        },
+        {
+          "heading": "User Control",
+          "content": "You have complete control over whether this data is collected:",
+          "blockType": "default",
+          "listType": "bullet",
+          "items": [
+            "The 'Share App Analytics' feature is opt-in and can be toggled on/off at any time in the app settings",
+            "When disabled, no analytics data will be collected"
+          ],
+          "sections": []
+        }
+      ]
+    },
+    {
+      "heading": "Data Retention",
+      "content": "Your data is stored on your device for as long as you use the app. You can delete your data at any time by:",
+      "blockType": "default",
+      "listType": "bullet",
+      "items": [
+        "Using the in-app 'Clear Data' function in Settings",
+        "Deleting the app, which removes all locally stored data"
+      ],
+      "sections": []
+    },
+    {
+      "heading": "User Rights (GDPR Articles 15-22)",
+      "content": "You have the following rights regarding your personal data:",
+      "blockType": "default",
+      "listType": "bullet",
+      "items": [],
+      "sections": [
+        {
+          "heading": "For Locally Stored Data",
+          "content": "",
+          "blockType": "default",
+          "listType": "bullet",
+          "items": [
+            "Right to Access: View the data you have entered at any time within the app",
+            "Right to Rectification: Edit or correct your data directly in the app",
+            "Right to Erasure: Delete all or specific data through the app settings",
+            "Right to Data Portability: Export your data in a structured, commonly used format through the app's export function",
+            "Right to Withdraw Consent: If you have consented to bodyweight tracking, you can withdraw your consent at any time through app settings"
+          ],
+          "sections": []
+        },
+        {
+          "heading": "For Cloud-Stored Data",
+          "content": "",
+          "blockType": "default",
+          "listType": "bullet",
+          "items": [],
+          "sections": [
+            {
+              "heading": "Installation-Based Data Management",
+              "content": "Due to our privacy-by-design approach, all cloud-stored data is linked to a unique, randomly generated installation ID rather than to you personally. This means:",
+              "blockType": "warning",
+              "listType": "bullet",
+              "items": [
+                "You can manage data from your current app installation",
+                "You cannot access data from previous installations or other devices",
+                "We cannot identify which person submitted which data",
+                "Your anonymity is protected, even from us"
+              ],
+              "sections": []
+            },
+            {
+              "heading": "Your Rights for Current Installation Data",
+              "content": "",
+              "blockType": "default",
+              "listType": "bullet",
+              "items": [
+                "Right to Access: View what data we have stored from your current installation.",
+                "Right to Rectification: Correct inaccurate data. Due to encryption and pseudonymization, we cannot edit data directly, therefore it must be deleted and resubmitted.",
+                "Right to Erasure: Delete your data permanently. Your data will be permanently deleted within 30 days. This only affects your current installation. Any data from previous installations remains pseudonymized and cannot be linked to you.",
+                "Right to Data Portability: Download your data in a portable format.",
+                "Right to Withdraw Consent: Stop sharing data at any time. Dismiss future questionnaires, they won't be submitted. Withdrawing consent only affects your current installation.",
+                "Right to Restrict Processing: Limit how we use your data.",
+                "Right to Object: Object to us using your data for research."
+              ],
+              "sections": []
+            },
+            {
+              "heading": "How to Exercise Your Rights",
+              "content": "Contact us at support@liftapp.org and include your Installation ID (found in Settings > Data & Storage > Installation ID). We will process your request within 30 days.",
+              "blockType": "default",
+              "listType": "bullet",
+              "items": [],
+              "sections": []
+            },
+            {
+              "heading": "Limitations Due to Pseudonymization",
+              "content": "Due to pseudonymization limitations exist because we've designed the app to maximize your privacy. The trade-off is that you have less ability to manage data across installations, but you gain strong anonymity protection. Because we use installation-based pseudonymization for your privacy protection:",
+              "blockType": "warning",
+              "listType": "bullet",
+              "items": [
+                "Cannot Link Across Installations: If you've used the app on multiple devices or reinstalled it, we cannot identify or link data from different installations",
+                "Cannot Identify You: We cannot determine which data belongs to which person",
+                "Lost Installation ID: If you lose access to your installation ID (e.g., by deleting the app), we cannot retrieve your data because we have no way to identify which data was yours",
+                "Previous Installations: Data from previous installations remains pseudonymized and cannot be accessed, modified, or deleted unless you have the installation ID from that installation"
+              ],
+              "sections": []
+            }
+          ]
+        },
+        {
+          "heading": "",
+          "content": "Important Note on Processing Rights: Since this app stores data locally on your device and data processing is essential to the app's core functionality, the rights to restrict processing or object to processing can only be exercised by deleting specific data or discontinuing use of the app. All processing of your data occurs exclusively on your device as an integral part of the app's functionality.",
+          "blockType": "warning",
+          "sections": []
+        }
+      ]
+    },
+    {
+      "heading": "Data Sharing and Third Parties",
+      "content": "We do not sell, rent, or disclose your data to third parties for commercial purposes",
+      "blockType": "default",
+      "listType": "bullet",
+      "items": [
+        "We do not share, sell, rent, or disclose your data to any third parties.",
+        "We do not use third-party analytics services.",
+        "No data is transferred internationally as all data remains locally on your device."
+      ],
+      "sections": [
+        {
+          "heading": "Third-Party Service Providers",
+          "content": "",
+          "blockType": "default",
+          "sections": [
+            {
+              "heading": "Supabase (Cloud Database Service)",
+              "content": "",
+              "blockType": "default",
+              "listType": "bullet",
+              "items": [
+                "If you consent to cloud storage, we use Supabase to securely store your questionnaire results and/or donated training data",
+                "Data is stored encrypted and linked only to pseudonymized Installation IDs",
+                "Supabase cannot decrypt your data or identify you personally",
+                "Supabase is GDPR-compliant and acts as a data processor on our behalf",
+                "Supabase's privacy policy: https://supabase.com/privacy",
+                "Data is stored on servers located in Central Europe (Zurich)",
+                "Switzerland is recognized by the EU as providing adequate data protection (GDPR Article 45 adequacy decision)",
+                "This ensures your data receives the same level of protection as within the EU"
+              ],
+              "sections": []
+            }
+          ]
+        },
+        {
+          "heading": "Academic Research",
+          "content": "",
+          "blockType": "default",
+          "listType": "bullet",
+          "items": [
+            "Cloud-stored data may be used for academic research purposes as part of a master's thesis project",
+            "Data is already pseudonymized (linked only to Installation IDs, not personal identities)",
+            "Data used in research publications will be further anonymized or aggregated",
+            "No personally identifiable information will be published or shared publicly",
+            "Researchers cannot determine which person submitted which data"
+          ],
+          "sections": []
+        },
+        {
+          "heading": "No Other Data Sharing",
+          "content": "",
+          "blockType": "default",
+          "listType": "bullet",
+          "items": [
+            "We do not use third-party analytics services",
+            "We do not share data with advertisers or marketing companies",
+            "No data is transferred to non-GDPR compliant jurisdictions"
+          ],
+          "sections": []
+        }
+      ]
+    },
+    {
+      "heading": "Cookies and Similar Technologies",
+      "content": "Our app does not use cookies, as it is a native mobile application. We do not track your online activities across third-party websites or services.",
+      "blockType": "default",
+      "sections": []
+    },
+    {
+      "heading": "Children's Privacy",
+      "content": "",
+      "blockType": "default",
+      "listType": "bullet",
+      "items": [
+        "Our app is not intended for children under the age of 16.",
+        "We do not knowingly collect personal information from children under 16.",
+        "If we discover we have collected personal information from a child under 16, we will delete this information immediately.",
+        "If you believe we might have inadvertently collected data from a child under 16, please contact us immediately."
+      ],
+      "sections": []
+    },
+    {
+      "heading": "Data Breach Notification",
+      "content": "In the unlikely event of a data breach that compromises your personal information:",
+      "blockType": "default",
+      "listType": "bullet",
+      "items": [
+        "We will notify you via the contact information available or through an in-app notification within 72 hours of becoming aware of the breach.",
+        "The notification will include the nature of the breach, likely consequences, and measures taken to address the breach."
+      ],
+      "sections": []
+    },
+    {
+      "heading": "Complaints Procedure",
+      "content": "If you have concerns about our data practices:",
+      "blockType": "default",
+      "listType": "bullet",
+      "items": [
+        "Please contact us first at support@liftapp.org so we can address your concerns directly.",
+        "You have the right to lodge a complaint with a supervisory authority. For EU residents, you can find your national data protection authority at https://edpb.europa.eu/about-edpb/board/members_en."
+      ],
+      "sections": []
+    },
+    {
+      "heading": "Changes to This Privacy Policy",
+      "content": "We may update this Privacy Policy from time to time.",
+      "blockType": "default",
+      "listType": "bullet",
+      "items": [
+        "We will notify you of any significant changes through an in-app notification.",
+        "The 'Effective Date' at the top will indicate when the policy was last revised.",
+        "Continued use of the app after changes constitutes your acceptance of the updated Privacy Policy."
+      ],
+      "sections": []
+    },
+    {
+      "heading": "Contact Us",
+      "content": "If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us at:",
+      "blockType": "default",
+      "sections": [
+        {
+          "heading": "",
+          "content": "",
+          "blockType": "info",
+          "listType": "bullet",
+          "items": [
+            "Legal Name: Frühwirth David",
+            "Email: support@liftapp.org",
+            "Country of Incorporation: Austria"
+          ],
+          "sections": []
+        }
+      ]
+    }
+  ]
+}
