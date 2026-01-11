@@ -573,3 +573,47 @@ footer {
         text-align: center;
     }
 }
+
+.viz-card {
+    background: linear-gradient(180deg, #141822, #0f1115);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+svg {
+    width: 100%;
+    height: 260px;
+    overflow: visible;
+}
+
+.axis {
+    stroke: rgba(94, 234, 212, 0.35);
+    stroke-width: 1;
+}
+
+.line {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    filter: drop-shadow(0 0 6px rgba(94, 234, 212, 0.35));
+}
+
+.dot {
+    fill: var(--bg);
+    stroke: var(--accent);
+    stroke-width: 2;
+}
+
+.label {
+    fill: var(--muted);
+    font-size: 0.75rem;
+}
+
+.cycle-label {
+    fill: var(--fg);
+    font-size: 0.85rem;
+    font-weight: 500;
+}
