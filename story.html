@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>The Story Behind Lift</title>
         <link rel="stylesheet" href="css/base.css" />
+        <link rel="stylesheet" href="css/index.css" />
         <link rel="stylesheet" href="css/layout.css" />
         <link rel="stylesheet" href="css/story.css" />
     </head>
@@ -18,133 +19,179 @@
         </nav>
 
         <!-- Hero Section -->
-        <div class="story-hero">
-            <h1>The Story Behind the App</h1>
-            <p>Building Strength, Building Community</p>
-        </div>
+        <section class="hero magicpattern">
+            <section class="ios-glass-card">
+                <h1>The Story Behind the App</h1>
+                <p class="tagline">Building Strength, Building Community</p>
+            </section>
+        </section>
 
         <!-- Story Content -->
         <div class="story-content">
             <p>
-                Hi, I'm David—a 25-year-old software developer, university
-                student, and lifelong fitness enthusiast from Austria. My
-                journey with this app began not just with lines of code, but
-                with a deep conviction: physical fitness is one of the greatest
-                investments you can make in your life. It transforms not only
-                your body, but also your mind, your confidence, and the way you
-                move through the world.
+                Hi, I'm David - a 25-year-old software developer, university
+                student, and lifelong fitness enthusiast from Austria. I built
+                Lift as part of my master's thesis in computer science, with a
+                singular focus: creating a training tool that respects both
+                physiological principles and statistical rigor. This isn't a
+                social platform or a motivational feed. It's a structured,
+                data-driven system designed for lifters who take their training
+                seriously and want to understand their progress beyond
+                surface-level metrics.
             </p>
             <p>
-                As someone who's passionate about data science and machine
-                learning, I've always been fascinated by the stories that data
-                can tell. I believe that with enough information and the right
-                tools, we can unlock new levels of understanding and
-                progress—both in science and in our personal lives. The recent
-                surge in generative AI is proof of how a breakthrough, combined
-                with existing knowledge, can disrupt entire industries. But for
-                me, the most exciting potential lies in helping real people
-                achieve real results.
-            </p>
-
-            <h2>Why This App Exists</h2>
-            <p>
-                I created this app because I saw a gap in the fitness world.
-                Social media is full of conflicting advice, sacred exercises,
-                and endless trends. But for most people, the real key to
-                progress isn't hidden knowledge—it's consistency. Week after
-                week. Month after month. Year after year. As James Clear says,
-                "It's not that hard on any given day, but the trick is you can't
-                skip days." Reasonable, regular effort beats sporadic intensity
-                every time.
-            </p>
-            <p>
-                My goal was to build a tool that makes scientifically-based
-                fitness accessible to everyone—without requiring endless
-                research or guesswork. I wanted to create something that
-                empowers you to track your progress, understand your strengths,
-                and make smarter decisions in the gym. Whether you're a beginner
-                or a seasoned lifter, this app is designed to support your
-                journey and help you stay consistent.
+                My background in data science and machine learning shaped how I
+                approached this project. I wanted to build something that could
+                translate raw training data into meaningful insights—not through
+                flashy animations or arbitrary gamification, but through
+                well-designed charts, robust statistical methods, and thoughtful
+                progression logic. Lift is opinionated by design. It doesn't try
+                to be everything to everyone. Instead, it focuses on resistance
+                training, hypertrophy-oriented programming, and the principles
+                that actually drive long-term progress.
             </p>
 
-            <h2>What Makes This App Different</h2>
+            <h2>Why Lift Exists</h2>
             <p>
-                From the start, I focused on putting the user first. Your data
-                stays on your device—private, secure, and fully under your
-                control. There's no third-party tracking, no hidden data
-                sharing. You can export, clear, or delete your information at
-                any time. The app is built around your needs, with features
-                like:
+                I created Lift because existing workout apps frustrated me. Many
+                were web-based or poorly designed, cluttered with social
+                features I didn't need, or too flexible to provide meaningful
+                structure. Others tracked numbers but offered no real insight
+                into what those numbers meant or how to improve them. I wanted
+                something different: a native iOS app that felt clean and
+                intentional, that integrated deeply with Apple Health, and that
+                could help intermediate to advanced lifters understand and
+                systematically improve their training.
+            </p>
+            <p>
+                The core philosophy is simple: progressive overload,
+                auto-regulation, and periodization. Consistency matters, but so
+                does structure. Training without a plan leads to spinning your
+                wheels. Training with a plan—but without feedback
+                mechanisms—leads to stagnation or burnout. Lift aims to solve
+                both problems by providing structure upfront and adapting over
+                time based on your performance and feedback.
+            </p>
+
+            <h2>What Makes Lift Different</h2>
+            <p>
+                Lift is built around several key principles that distinguish it
+                from other tracking apps:
             </p>
             <ul>
                 <li>
-                    Comprehensive workout tracking—log exercises, weights, reps,
-                    and more
+                    <strong>RIR as a first-class metric:</strong> Reps in
+                    Reserve (RIR) is integrated directly into the workout flow,
+                    not buried in settings. It's central to understanding effort
+                    and driving auto-regulated progression.
                 </li>
                 <li>
-                    Personalized analytics and trend estimations to help you see
-                    your progress
-                </li>
-                <li>Smart recommendations and customizable routines</li>
-                <li>
-                    Streaks, reminders, and motivational insights to keep you on
-                    track
+                    <strong>Bodyweight-aware performance tracking:</strong> Lift
+                    reads bodyweight from Apple Health, applies Kalman filtering
+                    to smooth out noise, and incorporates bodyweight into
+                    performance calculations. If you're performing dips at a
+                    higher bodyweight, that counts as real strength progress.
                 </li>
                 <li>
-                    Internationalization and accessibility for a global
-                    community
+                    <strong>Mesocycle planning:</strong> Rather than leaving you
+                    to figure out splits and volumes on your own, Lift generates
+                    structured training plans based on your experience level,
+                    available training days, and muscle-group priorities. It
+                    then tracks your progress through the mesocycle and adjusts
+                    variables automatically.
+                </li>
+                <li>
+                    <strong>Auto-regulated progression:</strong> After each
+                    exercise, you provide feedback on effort, pain, and volume
+                    tolerance. Lift uses this to adjust training
+                    variables—reducing RIR, increasing load, adding reps or
+                    sets, or introducing deloads when needed.
+                </li>
+                <li>
+                    <strong>Smart warm-ups:</strong> The app can generate
+                    warm-up sets automatically using percentile-based analysis
+                    of your recent performance, preparing you effectively
+                    without pre-exhausting you.
+                </li>
+                <li>
+                    <strong>Robust strength estimates:</strong> Instead of
+                    relying on single best lifts, Lift computes 1RIR and 1RM
+                    estimates across multiple sessions and applies statistical
+                    filtering to produce stable, realistic numbers.
+                </li>
+                <li>
+                    <strong>Rich data visualization:</strong> Charts and
+                    statistics aren't decoration—they're tools to understand
+                    training streaks, consistency, volume distribution,
+                    bodyweight trends, and performance trajectory over time.
                 </li>
             </ul>
             <p>
-                But this is just the beginning. My vision is to create a
-                platform that not only tracks your workouts, but also learns
-                from your data—offering tailored advice, smarter training
-                cycles, and advanced recovery metrics. In the next phases, I'll
-                be integrating expert systems and AI-driven recommendations to
-                help you train even more effectively.
+                All of this runs natively on iOS using SwiftUI. The interface is
+                clean, minimal, and interruption-free. There are no accounts, no
+                ads, and no social feeds. Your data stays on your device. You
+                can use Lift fully offline, and you own your information
+                completely.
             </p>
 
-            <h2>Your Role in This Journey</h2>
+            <h2>The Research Component</h2>
             <p>
-                Here's where you come in. As a user, you're not just benefiting
-                from the app—you're helping to shape its future. In about a
-                year, I'll be inviting users to donate their anonymized workout
-                data for scientific research. This data will be the foundation
-                of my master thesis in computer science, enabling me to develop
-                better models, uncover new insights, and improve the app for
-                everyone.
+                Lift is part of my master's thesis, and I'm actively collecting
+                anonymized training data to advance scientific understanding of
+                resistance training. If you choose to participate, you can
+                donate your workout logs and questionnaire responses through an
+                optional feature in the app. This data is encrypted, stored
+                securely on a server in Zurich, and stripped of all personal
+                identifying information. Only an anonymous device identifier is
+                used to correlate logs.
             </p>
             <p>
-                Your participation is crucial. By using the app and (optionally)
-                contributing your data, you're helping to advance scientific
-                understanding of fitness and human performance. Together, we can
-                build tools that empower people everywhere to train smarter,
-                stay healthier, and reach their goals.
+                Participation is entirely optional. You can use Lift without
+                ever contributing data. But if you do participate, you're
+                helping to build better models, uncover insights into training
+                response, and improve the app for everyone. This research will
+                form the foundation of my thesis and potentially lead to
+                on-device machine learning features that offer more personalized
+                recommendations over time.
             </p>
 
-            <h2>Fitness Is More Than Just Muscle</h2>
+            <h2>Who This App Is For</h2>
             <p>
-                I believe that being fit isn't just about looking good—it's
-                about living well. It's about the confidence you carry, the
-                standards you set, and the example you lead for others. The gym
-                teaches us about failure, resilience, and growth. It humbles us,
-                breaks us down, and builds us back up. Your progress is a direct
-                reflection of your effort—there's no luck involved.
+                Lift is designed for intermediate to advanced lifters who train
+                consistently, value structure, and prefer data-driven
+                decision-making over guesswork. If you're the kind of person who
+                cares about progressive overload, understands what RIR means,
+                and wants to see your training improve systematically rather
+                than randomly, this app is for you. Beginners can use Lift for
+                basic tracking, but many of its features—mesocycle planning,
+                auto-regulation, statistical analysis—are built for users who
+                are willing to engage seriously with their training process.
             </p>
             <p>
-                I train for my family, for my future, and for the peace it
-                brings me. I hope this app helps you find your own reasons to
-                stay consistent, to push forward, and to become the best version
-                of yourself.
+                This is not a casual logging app. It's not a motivational
+                platform. It's a tool for people who want clarity, structure,
+                and confidence in their training decisions.
+            </p>
+
+            <h2>What's Next</h2>
+            <p>
+                Lift is actively evolving. I'm working on improved progression
+                algorithms, on-device machine learning models, exercise
+                recommendations, widgets, and deeper platform integrations. The
+                app is currently free to use, and there are no plans to
+                introduce subscriptions within the next one to two years. User
+                feedback is not only welcomed—it's essential. As the system
+                matures, breaking changes may occur, but the core philosophy
+                will remain the same: scientifically grounded, user-owned, and
+                built for progress.
             </p>
             <p>
-                Thank you for being part of this journey. Your commitment, your
-                feedback, and your trust are what make this project possible.
-                Together, we're not just building stronger bodies—we're building
-                a stronger community.
+                Thank you for using Lift. Whether you're tracking your first
+                mesocycle or refining years of training data, your commitment to
+                structured improvement is what makes this project meaningful.
             </p>
             <div class="author-signature">
-                Let's make progress, one workout at a time.<br /><br />
+                Train with intent. Track with purpose.<br /><br />
                 — David
             </div>
         </div>
