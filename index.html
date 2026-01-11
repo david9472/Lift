@@ -7,6 +7,483 @@
         <link rel="stylesheet" href="css/base.css" />
         <link rel="stylesheet" href="css/layout.css" />
         <link rel="stylesheet" href="css/index.css" />
+        <style>
+            /* Interactive Component Styles */
+            .interactive-card {
+                background: rgba(255, 255, 255, 0.03);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                border-radius: 20px;
+                padding: 1.5rem;
+                width: 100%;
+                max-width: 340px;
+                margin: 0 auto;
+            }
+
+            .interactive-card-header {
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+                margin-bottom: 1.25rem;
+                padding-bottom: 1rem;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            }
+
+            .interactive-card-icon {
+                width: 44px;
+                height: 44px;
+                border-radius: 10px;
+                background: linear-gradient(
+                    135deg,
+                    rgba(255, 255, 255, 0.1),
+                    rgba(255, 255, 255, 0.05)
+                );
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.25rem;
+            }
+
+            .interactive-card-title {
+                font-size: 1rem;
+                font-weight: 600;
+                color: #fff;
+                margin: 0;
+            }
+
+            .interactive-card-subtitle {
+                font-size: 0.8rem;
+                color: rgba(255, 255, 255, 0.5);
+                margin: 0;
+            }
+
+            /* Stats Grid */
+            .stats-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 0.75rem;
+                margin-bottom: 1.25rem;
+            }
+
+            .stat-item {
+                background: rgba(255, 255, 255, 0.04);
+                border-radius: 12px;
+                padding: 0.875rem;
+                text-align: center;
+            }
+
+            .stat-label {
+                font-size: 0.7rem;
+                color: rgba(255, 255, 255, 0.4);
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                margin-bottom: 0.25rem;
+            }
+
+            .stat-value {
+                font-size: 1.125rem;
+                font-weight: 600;
+                color: #fff;
+            }
+
+            .stat-value.positive {
+                color: #34c759;
+            }
+
+            .stat-value.accent {
+                color: #5ac8fa;
+            }
+
+            /* Expandable Sections */
+            .expandable-section {
+                background: rgba(255, 255, 255, 0.03);
+                border-radius: 12px;
+                margin-bottom: 0.5rem;
+                overflow: hidden;
+            }
+
+            .expandable-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0.875rem 1rem;
+                cursor: pointer;
+                transition: background 0.2s ease;
+            }
+
+            .expandable-header:hover {
+                background: rgba(255, 255, 255, 0.02);
+            }
+
+            .expandable-title {
+                font-size: 0.875rem;
+                font-weight: 500;
+                color: rgba(255, 255, 255, 0.9);
+            }
+
+            .expandable-chevron {
+                font-size: 0.75rem;
+                color: rgba(255, 255, 255, 0.3);
+                transition: transform 0.3s ease;
+            }
+
+            .expandable-section.expanded .expandable-chevron {
+                transform: rotate(180deg);
+            }
+
+            .expandable-content {
+                max-height: 0;
+                overflow: hidden;
+                transition:
+                    max-height 0.3s ease,
+                    padding 0.3s ease;
+            }
+
+            .expandable-section.expanded .expandable-content {
+                max-height: 200px;
+            }
+
+            .expandable-content-inner {
+                padding: 0 1rem 1rem;
+                font-size: 0.8rem;
+                color: rgba(255, 255, 255, 0.5);
+                line-height: 1.6;
+            }
+
+            .expandable-content-inner ol,
+            .expandable-content-inner ul {
+                margin: 0;
+                padding-left: 1.25rem;
+            }
+
+            .expandable-content-inner li {
+                margin-bottom: 0.375rem;
+            }
+
+            /* Mesocycle Visualization */
+            .mesocycle-weeks {
+                display: flex;
+                gap: 0.375rem;
+                margin-bottom: 1.25rem;
+            }
+
+            .meso-week {
+                flex: 1;
+                height: 8px;
+                border-radius: 4px;
+                background: rgba(255, 255, 255, 0.1);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .meso-week.completed {
+                background: linear-gradient(90deg, #34c759, #30d158);
+            }
+
+            .meso-week.current {
+                background: linear-gradient(90deg, #5ac8fa, #64d2ff);
+                animation: pulse-glow 2s ease-in-out infinite;
+            }
+
+            @keyframes pulse-glow {
+                0%,
+                100% {
+                    opacity: 1;
+                }
+                50% {
+                    opacity: 0.7;
+                }
+            }
+
+            .meso-week.deload {
+                background: linear-gradient(90deg, #ff9f0a, #ffb340);
+            }
+
+            .week-labels {
+                display: flex;
+                gap: 0.375rem;
+                margin-bottom: 1rem;
+            }
+
+            .week-label {
+                flex: 1;
+                text-align: center;
+                font-size: 0.65rem;
+                color: rgba(255, 255, 255, 0.35);
+            }
+
+            /* Volume Bars */
+            .volume-section {
+                margin-bottom: 1rem;
+            }
+
+            .volume-label {
+                font-size: 0.75rem;
+                color: rgba(255, 255, 255, 0.5);
+                margin-bottom: 0.5rem;
+            }
+
+            .volume-bar-container {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .volume-bar-label {
+                font-size: 0.7rem;
+                color: rgba(255, 255, 255, 0.6);
+                width: 50px;
+                flex-shrink: 0;
+            }
+
+            .volume-bar-track {
+                flex: 1;
+                height: 6px;
+                background: rgba(255, 255, 255, 0.08);
+                border-radius: 3px;
+                overflow: hidden;
+            }
+
+            .volume-bar-fill {
+                height: 100%;
+                border-radius: 3px;
+                transition: width 0.5s ease;
+            }
+
+            .volume-bar-fill.chest {
+                background: linear-gradient(90deg, #ff453a, #ff6961);
+            }
+            .volume-bar-fill.back {
+                background: linear-gradient(90deg, #30d158, #34c759);
+            }
+            .volume-bar-fill.legs {
+                background: linear-gradient(90deg, #5e5ce6, #7d7aff);
+            }
+            .volume-bar-fill.shoulders {
+                background: linear-gradient(90deg, #ff9f0a, #ffb340);
+            }
+
+            .volume-bar-value {
+                font-size: 0.7rem;
+                color: rgba(255, 255, 255, 0.5);
+                width: 40px;
+                text-align: right;
+                flex-shrink: 0;
+            }
+
+            /* RIR Slider Mock */
+            .rir-section {
+                margin-bottom: 1.25rem;
+            }
+
+            .rir-label-row {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 0.5rem;
+            }
+
+            .rir-label {
+                font-size: 0.75rem;
+                color: rgba(255, 255, 255, 0.5);
+            }
+
+            .rir-value {
+                font-size: 0.875rem;
+                font-weight: 600;
+                color: #ff9f0a;
+            }
+
+            .rir-track {
+                height: 6px;
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 3px;
+                position: relative;
+            }
+
+            .rir-fill {
+                position: absolute;
+                left: 0;
+                top: 0;
+                height: 100%;
+                width: 70%;
+                background: linear-gradient(90deg, #ff453a, #ff9f0a);
+                border-radius: 3px;
+            }
+
+            .rir-thumb {
+                position: absolute;
+                right: 30%;
+                top: 50%;
+                transform: translate(50%, -50%);
+                width: 16px;
+                height: 16px;
+                background: #fff;
+                border-radius: 50%;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            }
+
+            /* Set List */
+            .set-list {
+                margin-bottom: 1rem;
+            }
+
+            .set-row {
+                display: flex;
+                align-items: center;
+                padding: 0.625rem 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            }
+
+            .set-row:last-child {
+                border-bottom: none;
+            }
+
+            .set-number {
+                width: 24px;
+                height: 24px;
+                border-radius: 6px;
+                background: rgba(255, 255, 255, 0.08);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 0.7rem;
+                font-weight: 600;
+                color: rgba(255, 255, 255, 0.6);
+                margin-right: 0.75rem;
+            }
+
+            .set-details {
+                flex: 1;
+                display: flex;
+                gap: 1rem;
+            }
+
+            .set-detail {
+                font-size: 0.8rem;
+                color: rgba(255, 255, 255, 0.7);
+            }
+
+            .set-detail span {
+                color: rgba(255, 255, 255, 0.4);
+                font-size: 0.7rem;
+            }
+
+            .set-check {
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background: #34c759;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 0.65rem;
+                color: #fff;
+            }
+
+            .set-check.pending {
+                background: rgba(255, 255, 255, 0.1);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+            }
+
+            .set-check.pending::after {
+                content: none;
+            }
+
+            /* Bodyweight Chart Mock */
+            .chart-container {
+                height: 120px;
+                position: relative;
+                margin-bottom: 1rem;
+            }
+
+            .chart-line {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 100%;
+            }
+
+            .chart-svg {
+                width: 100%;
+                height: 100%;
+            }
+
+            .chart-labels {
+                display: flex;
+                justify-content: space-between;
+                font-size: 0.65rem;
+                color: rgba(255, 255, 255, 0.3);
+                margin-top: 0.5rem;
+            }
+
+            .chart-legend {
+                display: flex;
+                gap: 1rem;
+                justify-content: center;
+                margin-top: 0.75rem;
+            }
+
+            .legend-item {
+                display: flex;
+                align-items: center;
+                gap: 0.375rem;
+                font-size: 0.7rem;
+                color: rgba(255, 255, 255, 0.5);
+            }
+
+            .legend-dot {
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+            }
+
+            .legend-dot.raw {
+                background: rgba(255, 255, 255, 0.3);
+            }
+            .legend-dot.smoothed {
+                background: #5ac8fa;
+            }
+
+            /* Feedback Pills */
+            .feedback-section {
+                margin-bottom: 1rem;
+            }
+
+            .feedback-label {
+                font-size: 0.75rem;
+                color: rgba(255, 255, 255, 0.5);
+                margin-bottom: 0.5rem;
+            }
+
+            .feedback-pills {
+                display: flex;
+                gap: 0.5rem;
+            }
+
+            .feedback-pill {
+                flex: 1;
+                padding: 0.5rem;
+                border-radius: 8px;
+                background: rgba(255, 255, 255, 0.05);
+                text-align: center;
+                font-size: 0.75rem;
+                color: rgba(255, 255, 255, 0.5);
+                cursor: pointer;
+                transition: all 0.2s ease;
+            }
+
+            .feedback-pill.selected {
+                background: rgba(90, 200, 250, 0.2);
+                color: #5ac8fa;
+            }
+
+            .feedback-pill:hover {
+                background: rgba(255, 255, 255, 0.08);
+            }
+        </style>
     </head>
     <body>
         <!-- Navigation -->
@@ -138,6 +615,7 @@
                     </p>
                 </div>
 
+                <!-- Mesocycle Planning -->
                 <div class="feature-showcase">
                     <div class="feature-content">
                         <h3>Mesocycle-driven programming</h3>
@@ -168,57 +646,108 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="viz-card">
-                        <svg viewBox="0 0 400 220">
-                            <!-- Axes -->
-                            <line
-                                class="axis"
-                                x1="40"
-                                y1="180"
-                                x2="360"
-                                y2="180"
-                            />
-                            <line
-                                class="axis"
-                                x1="40"
-                                y1="40"
-                                x2="40"
-                                y2="180"
-                            />
+                    <div class="feature-visual">
+                        <div class="interactive-card">
+                            <div class="interactive-card-header">
+                                <div class="interactive-card-icon">📊</div>
+                                <div>
+                                    <p class="interactive-card-title">
+                                        Mesocycle Progress
+                                    </p>
+                                    <p class="interactive-card-subtitle">
+                                        Week 4 of 6 • Accumulation
+                                    </p>
+                                </div>
+                            </div>
 
-                            <!-- Smoothed mesocycle line -->
-                            <path
-                                id="cyclePath"
-                                class="line"
-                                d="M 40 160
-                                 C 90 120, 120 110, 160 100
-                                 S 230 80, 260 90
-                                 S 320 130, 360 160"
-                            />
+                            <div class="week-labels">
+                                <span class="week-label">W1</span>
+                                <span class="week-label">W2</span>
+                                <span class="week-label">W3</span>
+                                <span class="week-label">W4</span>
+                                <span class="week-label">W5</span>
+                                <span class="week-label">W6</span>
+                            </div>
+                            <div class="mesocycle-weeks">
+                                <div class="meso-week completed"></div>
+                                <div class="meso-week completed"></div>
+                                <div class="meso-week completed"></div>
+                                <div class="meso-week current"></div>
+                                <div class="meso-week"></div>
+                                <div class="meso-week deload"></div>
+                            </div>
 
-                            <!-- Data points -->
-                            <circle class="dot" cx="40" cy="160" r="4" />
-                            <circle class="dot" cx="160" cy="100" r="4" />
-                            <circle class="dot" cx="260" cy="90" r="4" />
-                            <circle class="dot" cx="360" cy="160" r="4" />
+                            <div class="volume-section">
+                                <div class="volume-label">
+                                    Weekly Volume by Muscle Group
+                                </div>
+                                <div class="volume-bar-container">
+                                    <span class="volume-bar-label">Chest</span>
+                                    <div class="volume-bar-track">
+                                        <div
+                                            class="volume-bar-fill chest"
+                                            style="width: 85%"
+                                        ></div>
+                                    </div>
+                                    <span class="volume-bar-value"
+                                        >17 sets</span
+                                    >
+                                </div>
+                                <div class="volume-bar-container">
+                                    <span class="volume-bar-label">Back</span>
+                                    <div class="volume-bar-track">
+                                        <div
+                                            class="volume-bar-fill back"
+                                            style="width: 90%"
+                                        ></div>
+                                    </div>
+                                    <span class="volume-bar-value"
+                                        >18 sets</span
+                                    >
+                                </div>
+                                <div class="volume-bar-container">
+                                    <span class="volume-bar-label">Legs</span>
+                                    <div class="volume-bar-track">
+                                        <div
+                                            class="volume-bar-fill legs"
+                                            style="width: 100%"
+                                        ></div>
+                                    </div>
+                                    <span class="volume-bar-value"
+                                        >20 sets</span
+                                    >
+                                </div>
+                                <div class="volume-bar-container">
+                                    <span class="volume-bar-label"
+                                        >Shoulders</span
+                                    >
+                                    <div class="volume-bar-track">
+                                        <div
+                                            class="volume-bar-fill shoulders"
+                                            style="width: 60%"
+                                        ></div>
+                                    </div>
+                                    <span class="volume-bar-value"
+                                        >12 sets</span
+                                    >
+                                </div>
+                            </div>
 
-                            <!-- Labels -->
-                            <text class="label" x="10" y="45">Volume</text>
-                            <text class="label" x="300" y="205">Time</text>
-
-                            <text class="cycle-label" x="90" y="170">
-                                Accumulation
-                            </text>
-                            <text class="cycle-label" x="200" y="70">
-                                Overload
-                            </text>
-                            <text class="cycle-label" x="300" y="170">
-                                Deload
-                            </text>
-                        </svg>
+                            <div class="stats-grid">
+                                <div class="stat-item">
+                                    <div class="stat-label">Total Volume</div>
+                                    <div class="stat-value">67 sets</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-label">vs Last Week</div>
+                                    <div class="stat-value positive">+8%</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
+                <!-- RIR Tracking -->
                 <div class="feature-showcase">
                     <div class="feature-content">
                         <h3>RIR as a first-class metric</h3>
@@ -246,10 +775,95 @@
                         </ul>
                     </div>
                     <div class="feature-visual dark">
-                        <img src="images/analytics.jpg" alt="RIR tracking" />
+                        <div class="interactive-card">
+                            <div class="interactive-card-header">
+                                <div class="interactive-card-icon">🏋️</div>
+                                <div>
+                                    <p class="interactive-card-title">
+                                        Bench Press
+                                    </p>
+                                    <p class="interactive-card-subtitle">
+                                        Working Sets • Target RIR: 2
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="set-list">
+                                <div class="set-row">
+                                    <div class="set-number">1</div>
+                                    <div class="set-details">
+                                        <div class="set-detail">
+                                            83 kg <span>weight</span>
+                                        </div>
+                                        <div class="set-detail">
+                                            8 <span>reps</span>
+                                        </div>
+                                        <div class="set-detail">
+                                            2 <span>RIR</span>
+                                        </div>
+                                    </div>
+                                    <div class="set-check">✓</div>
+                                </div>
+                                <div class="set-row">
+                                    <div class="set-number">2</div>
+                                    <div class="set-details">
+                                        <div class="set-detail">
+                                            83 kg <span>weight</span>
+                                        </div>
+                                        <div class="set-detail">
+                                            7 <span>reps</span>
+                                        </div>
+                                        <div class="set-detail">
+                                            1 <span>RIR</span>
+                                        </div>
+                                    </div>
+                                    <div class="set-check">✓</div>
+                                </div>
+                                <div class="set-row">
+                                    <div class="set-number">3</div>
+                                    <div class="set-details">
+                                        <div class="set-detail">
+                                            83 kg <span>weight</span>
+                                        </div>
+                                        <div class="set-detail">
+                                            — <span>reps</span>
+                                        </div>
+                                        <div class="set-detail">
+                                            — <span>RIR</span>
+                                        </div>
+                                    </div>
+                                    <div class="set-check pending"></div>
+                                </div>
+                            </div>
+
+                            <div class="rir-section">
+                                <div class="rir-label-row">
+                                    <span class="rir-label">Current RIR</span>
+                                    <span class="rir-value">2 reps left</span>
+                                </div>
+                                <div class="rir-track">
+                                    <div class="rir-fill"></div>
+                                    <div class="rir-thumb"></div>
+                                </div>
+                            </div>
+
+                            <div class="feedback-section">
+                                <div class="feedback-label">
+                                    How did this set feel?
+                                </div>
+                                <div class="feedback-pills">
+                                    <div class="feedback-pill">Easy</div>
+                                    <div class="feedback-pill selected">
+                                        On Target
+                                    </div>
+                                    <div class="feedback-pill">Hard</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
+                <!-- Bodyweight Tracking -->
                 <div class="feature-showcase">
                     <div class="feature-content">
                         <h3>Bodyweight-aware performance</h3>
@@ -274,13 +888,168 @@
                         </ul>
                     </div>
                     <div class="feature-visual">
-                        <img
-                            src="images/dashboard.jpg"
-                            alt="Bodyweight integration"
-                        />
+                        <div class="interactive-card">
+                            <div class="interactive-card-header">
+                                <div class="interactive-card-icon">⚖️</div>
+                                <div>
+                                    <p class="interactive-card-title">
+                                        Bodyweight Trend
+                                    </p>
+                                    <p class="interactive-card-subtitle">
+                                        Last 30 days • Kalman smoothed
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="chart-container">
+                                <svg
+                                    class="chart-svg"
+                                    viewBox="0 0 300 100"
+                                    preserveAspectRatio="none"
+                                >
+                                    <!-- Raw data points (scattered) -->
+                                    <circle
+                                        cx="10"
+                                        cy="45"
+                                        r="3"
+                                        fill="rgba(255,255,255,0.2)"
+                                    />
+                                    <circle
+                                        cx="30"
+                                        cy="52"
+                                        r="3"
+                                        fill="rgba(255,255,255,0.2)"
+                                    />
+                                    <circle
+                                        cx="50"
+                                        cy="38"
+                                        r="3"
+                                        fill="rgba(255,255,255,0.2)"
+                                    />
+                                    <circle
+                                        cx="70"
+                                        cy="48"
+                                        r="3"
+                                        fill="rgba(255,255,255,0.2)"
+                                    />
+                                    <circle
+                                        cx="90"
+                                        cy="42"
+                                        r="3"
+                                        fill="rgba(255,255,255,0.2)"
+                                    />
+                                    <circle
+                                        cx="110"
+                                        cy="55"
+                                        r="3"
+                                        fill="rgba(255,255,255,0.2)"
+                                    />
+                                    <circle
+                                        cx="130"
+                                        cy="40"
+                                        r="3"
+                                        fill="rgba(255,255,255,0.2)"
+                                    />
+                                    <circle
+                                        cx="150"
+                                        cy="50"
+                                        r="3"
+                                        fill="rgba(255,255,255,0.2)"
+                                    />
+                                    <circle
+                                        cx="170"
+                                        cy="35"
+                                        r="3"
+                                        fill="rgba(255,255,255,0.2)"
+                                    />
+                                    <circle
+                                        cx="190"
+                                        cy="45"
+                                        r="3"
+                                        fill="rgba(255,255,255,0.2)"
+                                    />
+                                    <circle
+                                        cx="210"
+                                        cy="38"
+                                        r="3"
+                                        fill="rgba(255,255,255,0.2)"
+                                    />
+                                    <circle
+                                        cx="230"
+                                        cy="32"
+                                        r="3"
+                                        fill="rgba(255,255,255,0.2)"
+                                    />
+                                    <circle
+                                        cx="250"
+                                        cy="40"
+                                        r="3"
+                                        fill="rgba(255,255,255,0.2)"
+                                    />
+                                    <circle
+                                        cx="270"
+                                        cy="28"
+                                        r="3"
+                                        fill="rgba(255,255,255,0.2)"
+                                    />
+                                    <circle
+                                        cx="290"
+                                        cy="35"
+                                        r="3"
+                                        fill="rgba(255,255,255,0.2)"
+                                    />
+
+                                    <!-- Smoothed trend line -->
+                                    <path
+                                        d="M10,47 Q60,48 110,45 T210,38 T290,32"
+                                        fill="none"
+                                        stroke="#5ac8fa"
+                                        stroke-width="2.5"
+                                        stroke-linecap="round"
+                                    />
+
+                                    <!-- Confidence band -->
+                                    <path
+                                        d="M10,42 Q60,43 110,40 T210,33 T290,27 L290,37 T210,43 T110,50 Q60,53 10,52 Z"
+                                        fill="rgba(90,200,250,0.1)"
+                                    />
+                                </svg>
+                            </div>
+                            <div class="chart-labels">
+                                <span>Oct 12</span>
+                                <span>Oct 19</span>
+                                <span>Oct 26</span>
+                                <span>Nov 2</span>
+                                <span>Nov 9</span>
+                            </div>
+                            <div class="chart-legend">
+                                <div class="legend-item">
+                                    <div class="legend-dot raw"></div>
+                                    <span>Raw</span>
+                                </div>
+                                <div class="legend-item">
+                                    <div class="legend-dot smoothed"></div>
+                                    <span>Smoothed</span>
+                                </div>
+                            </div>
+
+                            <div class="stats-grid" style="margin-top: 1rem">
+                                <div class="stat-item">
+                                    <div class="stat-label">Current</div>
+                                    <div class="stat-value">86.7</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-label">30-Day Δ</div>
+                                    <div class="stat-value positive">
+                                        +1.7 kg
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
+                <!-- Statistical Insights -->
                 <div class="feature-showcase">
                     <div class="feature-content">
                         <h3>Statistically robust insights</h3>
@@ -305,10 +1074,103 @@
                         </ul>
                     </div>
                     <div class="feature-visual dark">
-                        <img
-                            src="images/exercise_analytics.jpeg"
-                            alt="Statistical analysis"
-                        />
+                        <div class="interactive-card">
+                            <div class="interactive-card-header">
+                                <div class="interactive-card-icon">📈</div>
+                                <div>
+                                    <p class="interactive-card-title">
+                                        Barbell Squat
+                                    </p>
+                                    <p class="interactive-card-subtitle">
+                                        Performance Analytics
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="stats-grid">
+                                <div class="stat-item">
+                                    <div class="stat-label">Est. 1RM</div>
+                                    <div class="stat-value accent">113 kg</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-label">Last Performed</div>
+                                    <div class="stat-value">3 days ago</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-label">Consistency</div>
+                                    <div class="stat-value">92%</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-label">12-Week Trend</div>
+                                    <div class="stat-value positive">
+                                        ↑ 5.2%
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="expandable-section"
+                                onclick="this.classList.toggle('expanded')"
+                            >
+                                <div class="expandable-header">
+                                    <span class="expandable-title"
+                                        >How to Perform</span
+                                    >
+                                    <span class="expandable-chevron">▼</span>
+                                </div>
+                                <div class="expandable-content">
+                                    <div class="expandable-content-inner">
+                                        <ol>
+                                            <li>
+                                                Position bar on upper traps,
+                                                feet shoulder-width apart
+                                            </li>
+                                            <li>
+                                                Brace core, break at hips and
+                                                knees simultaneously
+                                            </li>
+                                            <li>
+                                                Descend until hip crease is
+                                                below knee
+                                            </li>
+                                            <li>
+                                                Drive through full foot to stand
+                                            </li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="expandable-section"
+                                onclick="this.classList.toggle('expanded')"
+                            >
+                                <div class="expandable-header">
+                                    <span class="expandable-title"
+                                        >Common Mistakes</span
+                                    >
+                                    <span class="expandable-chevron">▼</span>
+                                </div>
+                                <div class="expandable-content">
+                                    <div class="expandable-content-inner">
+                                        <ul>
+                                            <li>
+                                                Knees caving inward during
+                                                ascent
+                                            </li>
+                                            <li>
+                                                Excessive forward lean / "good
+                                                morning" squat
+                                            </li>
+                                            <li>
+                                                Rising onto toes, heels lifting
+                                            </li>
+                                            <li>Cutting depth short</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -369,10 +1231,64 @@
                         </ul>
                     </div>
                     <div class="analytics-visual">
-                        <img
-                            src="images/dashboard.jpg"
-                            alt="Analytics dashboard"
-                        />
+                        <div class="interactive-card">
+                            <div class="interactive-card-header">
+                                <div class="interactive-card-icon">🎯</div>
+                                <div>
+                                    <p class="interactive-card-title">
+                                        Weekly Summary
+                                    </p>
+                                    <p class="interactive-card-subtitle">
+                                        Nov 4 – Nov 10
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="stats-grid">
+                                <div class="stat-item">
+                                    <div class="stat-label">Workouts</div>
+                                    <div class="stat-value">5</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-label">Streak</div>
+                                    <div class="stat-value accent">23 days</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-label">Total Volume</div>
+                                    <div class="stat-value">67 sets</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-label">Total Load</div>
+                                    <div class="stat-value">32,594 kg</div>
+                                </div>
+                            </div>
+
+                            <div class="volume-section">
+                                <div class="volume-label">
+                                    Consistency This Month
+                                </div>
+                                <div class="volume-bar-container">
+                                    <span class="volume-bar-label"></span>
+                                    <div
+                                        class="volume-bar-track"
+                                        style="height: 10px"
+                                    >
+                                        <div
+                                            class="volume-bar-fill back"
+                                            style="
+                                                width: 92%;
+                                                border-radius: 5px;
+                                            "
+                                        ></div>
+                                    </div>
+                                    <span
+                                        class="volume-bar-value"
+                                        style="color: #34c759; font-weight: 600"
+                                        >92%</span
+                                    >
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
